@@ -1,0 +1,10 @@
+export const CARE_ACTIONS = {
+  WASH: 'WASH',
+  FEED: 'FEED',
+  GROOM: 'GROOM',
+  PET: 'PET',
+  PHOTO: 'PHOTO',
+  TRAIN: 'TRAIN',
+  SOCIALIZE: 'SOCIALIZE',
+  VET: 'VET',
+};

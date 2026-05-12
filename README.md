@@ -1,11 +1,31 @@
-<div align="center">
+# Paws & Purpose
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A 2D browser-based pixel-art game built with React, Phaser 3, and Zustand.
 
-  <h1>Built with AI Studio</h2>
+## Technology Stack
+- **Rendering:** Phaser 3 (for canvas-based 2D pixel-art graphics and scenes)
+- **UI Layer:** React (for menus, character builder, notice board)
+- **State Management:** Zustand (for serializable game state across day phases)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Build Tooling:** Vite
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## How to Run
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open your browser to the URL provided by Vite (usually `http://localhost:3000`).
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
-
-</div>
+## File Conventions
+- `*.types.ts`: TypeScript interfaces and enums only, no logic.
+- `*.constants.ts`: Exported constants only, no logic.
+- `*.store.ts`: State management slice or store.
+- `*.logic.ts`: Pure functions, game rules, calculations.
+- `*.scene.ts`: Phaser scene class.
+- `*.component.tsx`: Single UI component.
+- `*.config.ts`: Static configuration objects.

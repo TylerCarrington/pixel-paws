@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-blossom-pink: #f2a7c3;
+  --color-soft-rose: #e8849a;
+  --color-warm-cream: #fdf3e7;
+  --color-amber-glow: #f5c87a;
+  --color-mossy-green: #7ab87a;
+  --color-deep-moss: #4a8a4a;
+  --color-stone-grey: #b0a898;
+  --color-warm-brown: #8b5e3c;
+  --color-soft-lilac: #c8a8d8;
+  --color-night-plum: #1a1020;
+  --color-dialogue-text: #5a3e38;
+  --color-speaker-rose: #b07060;
+  --color-muted-sage: #9ab8a0;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-game: "Press Start 2P", system-ui, sans-serif;
+  --font-pixel: "Silkscreen", cursive;
+  --font-retro: "VT323", monospace;
+}
+
+@layer utilities {
+  .pixelated {
+    image-rendering: pixelated;
+  }
+}
+
+@keyframes idleBreath {
+  0%, 100% {
+    transform: translateY(0px) scaleY(1);
+  }
+  50% {
+    transform: translateY(-1px) scaleY(1.02);
+  }
+}
+
+@keyframes nervousShake {
+  0%, 100% { transform: translateX(0px); }
+  25% { transform: translateX(-1px); }
+  75% { transform: translateX(1px); }
+}
+
+@keyframes curiousLean {
+  0%, 100% { transform: translateX(0px) rotate(0deg); }
+  50% { transform: translateX(2px) rotate(2deg); }
+}
+
+@keyframes happyBounce {
+  0%, 100% { transform: translateY(0px) scaleY(1); }
+  50% { transform: translateY(-4px) scaleY(1.03); }
+}
+
+@keyframes shiver {
+  0%, 100% { transform: translateX(0px) scaleY(1); }
+  25% { transform: translateX(-1px) scaleY(0.99); }
+  75% { transform: translateX(1px) scaleY(1.01); }
+}
+
+@keyframes petReact {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05) translateY(-2px); }
+  100% { transform: scale(1); }
+}
+
+.anim-idle {
+  animation: idleBreath 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.anim-nervous {
+  animation: nervousShake 0.18s infinite;
+}
+
+.anim-curious {
+  animation: curiousLean 1.5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.anim-happy {
+  animation: happyBounce 0.6s ease-in-out infinite;
+}
+
+.anim-shiver {
+  animation: shiver 0.12s infinite;
+}
+
+.anim-petting {
+  animation: petReact 0.4s ease-out;
+}
+
+@keyframes retreat {
+  from { transform: translateX(0px) scale(1); }
+  to { transform: translateX(-16px) scale(0.98); }
+}
+
+@keyframes cameraFloat {
+  0%, 100% { transform: translate(0px, 0px); }
+  50% { transform: translate(0px, -2px); }
+}
+
+.anim-retreat {
+  animation: retreat 0.8s ease forwards;
+}
+
+.camera-nervous {
+  animation: cameraFloat 4s ease-in-out infinite;
+}
+
+.state-cowering {
+  transform: scaleY(0.92) scaleX(1.04) translateY(4px);
+  filter: brightness(0.9);
+}
+
+.state-fear {
+  transform: scaleX(1.05) scaleY(0.9) translateY(4px);
+}
+
+.state-neutral {
+  transform: scale(1) translateY(0px);
+}
+
+.state-trusting {
+  transform: scaleY(1.02) translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.state-hidden {
+  filter: brightness(0.7) saturate(0.4) sepia(0.5);
+}
+
+.state-revealed {
+  transition: filter 1.5s ease, transform 1s ease;
+  filter: none;
+  transform: scale(1.04) translateY(-2px);
+}
