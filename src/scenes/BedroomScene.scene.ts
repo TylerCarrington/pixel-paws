@@ -20,7 +20,7 @@ export class BedroomScene extends Phaser.Scene {
     const breed = storeState.assignedBreed;
     const spriteKey = breed ? breed.spriteKey : 'husky';
     
-    const url = `/src/assets/images/animals/dogs/${spriteKey}.png`;
+    const url = `./src/assets/images/animals/dogs/${spriteKey}.png`;
     
     if (!this.textures.exists(spriteKey)) {
       this.load.image(spriteKey, url);

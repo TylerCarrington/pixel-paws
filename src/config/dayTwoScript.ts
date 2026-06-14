@@ -48,7 +48,7 @@ export const dayTwoScript = [
   {
     id: 'parkScene',
     type: 'background',
-    image: '/src/assets/images/park-fountain.png',
+    image: './src/assets/images/park-fountain.png',
     transition: 'crossfade',
     duration: 1200
   },
@@ -129,7 +129,7 @@ export const dayTwoScript = [
   },
   {
     type: 'background',
-    image: '/src/assets/images/house-dawn.png',
+    image: './src/assets/images/house-dawn.png',
     transition: 'crossfade',
     duration: 1000
   },
@@ -137,7 +137,7 @@ export const dayTwoScript = [
     type: 'dialogue',
     speaker: null,
     portrait: null,
-    text: 'Two animals in two days.',
+    text: 'Two animals in two days.'
     style: 'narration'
   },
   {
@@ -185,7 +185,7 @@ export const dayTwoScript = [
   {
     id: 'spareRoomScene',
     type: 'background',
-    image: '/src/assets/images/spare-room.png',
+    image: './src/assets/images/spare-room.png',
     transition: 'crossfade',
     duration: 1000
   },
@@ -215,7 +215,7 @@ export const dayTwoScript = [
   },
   {
     type: 'background',
-    image: '/src/assets/images/house-interior.png',
+    image: './src/assets/images/house-interior.png',
     transition: 'crossfade',
     duration: 1000
   },
@@ -223,7 +223,7 @@ export const dayTwoScript = [
     type: 'dialogue',
     speaker: null,
     portrait: null,
-    text: '{{firstPetName}} was waiting patiently in the main room.',
+    text: '{{firstPetName}} was waiting patiently in the main room.'
     style: 'narration'
   },
   {

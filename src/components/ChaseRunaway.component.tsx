@@ -15,10 +15,10 @@ interface Obstacle {
 }
 
 const OBSTACLE_TYPES = {
-  basket: { hp: 1, imageSrc: '/src/assets/images/items/item-basket-empty.png', width: '40px', height: '40px' },
-  branch: { hp: 1, imageSrc: '/src/assets/images/items/item-branch.png', width: '60px', height: '20px' },
-  boxes: { hp: 2, imageSrc: '/src/assets/images/items/item-boxes.png', width: '50px', height: '50px' },
-  wheelbarrow: { hp: 3, imageSrc: '/src/assets/images/items/item-wheelbarrow-empty.png', width: '70px', height: '50px' },
+  basket: { hp: 1, imageSrc: './src/assets/images/items/item-basket-empty.png', width: '40px', height: '40px' },
+  branch: { hp: 1, imageSrc: './src/assets/images/items/item-branch.png', width: '60px', height: '20px' },
+  boxes: { hp: 2, imageSrc: './src/assets/images/items/item-boxes.png', width: '50px', height: '50px' },
+  wheelbarrow: { hp: 3, imageSrc: './src/assets/images/items/item-wheelbarrow-empty.png', width: '70px', height: '50px' },
 };
 
 export default function ChaseRunaway({ onFinish }: { onFinish?: () => void }) {
@@ -187,10 +187,10 @@ export default function ChaseRunaway({ onFinish }: { onFinish?: () => void }) {
             className="flex min-w-max h-full"
             animate={bgControls}
          >
-           <img src="/src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80" />
-           <img src="/src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80 scale-x-[-1]" />
-           <img src="/src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80" />
-           <img src="/src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80 scale-x-[-1]" />
+           <img src="./src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80" />
+           <img src="./src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80 scale-x-[-1]" />
+           <img src="./src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80" />
+           <img src="./src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80 scale-x-[-1]" />
          </motion.div>
          {/* Dimmer overlay logic */}
          <div className={`absolute inset-0 transition-colors duration-1000 ${isComplete ? 'bg-black/20' : 'bg-black/40'}`} />

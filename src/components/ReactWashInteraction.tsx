@@ -134,7 +134,7 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
           <motion.div 
             key="muddy"
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('/src/assets/images/muddy-shape.png')` }}
+            style={{ backgroundImage: `url('./src/assets/images/muddy-shape.png')` }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
           >
@@ -150,7 +150,7 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
           <motion.div
             key="clean"
             className="absolute inset-0 bg-cover bg-center flex items-center justify-center"
-            style={{ backgroundImage: `url('/src/assets/images/riverside-bridge-close.png')` }}
+            style={{ backgroundImage: `url('./src/assets/images/riverside-bridge-close.png')` }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -161,7 +161,7 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
               transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.4 }}
             >
               <img 
-                src={`/src/assets/images/animals/dogs/${assignedBreed.spriteKey}.png`} 
+                src={`./src/assets/images/animals/dogs/${assignedBreed.spriteKey}.png`} 
                 alt="Pet Revealed" 
                 className="pixelated"
                 style={{ imageRendering: 'pixelated', width: '128px', height: '128px' }}

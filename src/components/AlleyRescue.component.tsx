@@ -75,7 +75,7 @@ export default function AlleyRescue({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/src/assets/images/back-alley.png" 
+          src="./src/assets/images/back-alley.png" 
           className="w-full h-full object-cover opacity-60"
           alt="Back Alley"
           onError={(e) => {

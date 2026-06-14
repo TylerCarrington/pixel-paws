@@ -2,7 +2,7 @@ export const dayOneScript = [
   // ── EVENING ──────────────────────────────────────────────
   {
     type: 'background',
-    image: '/src/assets/images/house-evening.png',
+    image: './src/assets/images/house-evening.png',
     transition: 'crossfade',
     duration: 1200
   },
@@ -44,7 +44,7 @@ export const dayOneScript = [
   // ── DAWN ─────────────────────────────────────────────────
   {
     type: 'background',
-    image: '/src/assets/images/house-dawn.png',
+    image: './src/assets/images/house-dawn.png',
     transition: 'crossfade',
     duration: 1400
   },
@@ -77,7 +77,7 @@ export const dayOneScript = [
   // ── RIVERSIDE PATH ────────────────────────────────────────
   {
     type: 'background',
-    image: '/src/assets/images/riverside-path.jpeg',
+    image: './src/assets/images/riverside-path.jpeg',
     transition: 'crossfade',
     duration: 1200
   },
@@ -106,7 +106,7 @@ export const dayOneScript = [
   // ── DISCOVERY ─────────────────────────────────────────────
   {
     type: 'background',
-    image: '/src/assets/images/riverside-bridge-close.png',
+    image: './src/assets/images/riverside-bridge-close.png',
     transition: 'crossfade',
     duration: 1000
   },
@@ -135,7 +135,7 @@ export const dayOneScript = [
   // ── MUDDY SHAPE ───────────────────────────────────────────
   {
     type: 'background',
-    image: '/src/assets/images/muddy-shape.png',
+    image: './src/assets/images/muddy-shape.png',
     transition: 'crossfade',
     duration: 800
   },
@@ -175,7 +175,7 @@ export const dayOneScript = [
   {
     id: 'postReveal',
     type: 'background',
-    image: '/src/assets/images/riverside-bridge-close.png',
+    image: './src/assets/images/riverside-bridge-close.png',
     transition: 'none'
   },
   {
@@ -251,7 +251,7 @@ export const dayOneScript = [
   },
   {
     type: 'background',
-    image: '/src/assets/images/house-dawn.png',
+    image: './src/assets/images/house-dawn.png',
     transition: 'crossfade',
     duration: 1200
   },
@@ -273,7 +273,7 @@ export const dayOneScript = [
   // ── INTERIOR ──────────────────────────────────────────────
   {
     type: 'background',
-    image: '/src/assets/images/house-interior.png',
+    image: './src/assets/images/house-interior.png',
     transition: 'crossfade',
     duration: 1000
   },

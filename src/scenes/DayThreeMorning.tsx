@@ -25,7 +25,7 @@ export default function DayThreeMorning({ onFinish, startBeatId }: DayThreeMorni
   const playerName = useGameStore(state => state.playerName) || "Player";
   const townName = useGameStore(state => state.townName) || "Town";
 
-  const [currentBg, setCurrentBg] = useState('/src/assets/images/house-evening.png');
+  const [currentBg, setCurrentBg] = useState('./src/assets/images/house-evening.png');
 
   // Auto-set background based on initial beat
   useEffect(() => {

@@ -68,7 +68,7 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
       {/* Park Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('/src/assets/images/park-fountain.png')" }}
+        style={{ backgroundImage: "url('./src/assets/images/park-fountain.png')" }}
       />
 
       {/* Layered Bush Sprites */}
@@ -87,7 +87,7 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
           }}
         >
           <img 
-            src="/src/assets/images/bush.png" 
+            src="./src/assets/images/bush.png" 
             alt="Bush" 
             className="w-full h-auto pixelated"
             style={{ transformOrigin: 'bottom center' }}
@@ -105,7 +105,7 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
           >
             <div className="relative">
               <img 
-                src="/src/assets/images/animals/dogs/corgi.png" 
+                src="./src/assets/images/animals/dogs/corgi.png" 
                 alt="Corgi" 
                 className="w-48 h-48 pixelated drop-shadow-[0_20px_20px_rgba(0,0,0,0.3)] animate-soft-pulse"
               />

@@ -117,7 +117,7 @@ export default function FoodTempt({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/src/assets/images/marketplace.png" 
+          src="./src/assets/images/marketplace.png" 
           className="w-full h-full object-cover opacity-60"
           alt="Marketplace"
           onError={(e) => {
@@ -144,7 +144,7 @@ export default function FoodTempt({ onFinish }: { onFinish?: () => void }) {
               transform: 'translate(-50%, -50%)',
             }}
           >
-            <img src="/src/assets/images/items/pet-treat.png" alt="Treat" className="w-full h-full object-contain" />
+            <img src="./src/assets/images/items/pet-treat.png" alt="Treat" className="w-full h-full object-contain" />
           </motion.div>
         )}
       </AnimatePresence>

@@ -89,7 +89,7 @@ export default function FenceRescue({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/src/assets/images/playground.png" 
+          src="./src/assets/images/playground.png" 
           className="w-full h-full object-cover opacity-80"
           alt="School Playground"
           onError={(e) => {

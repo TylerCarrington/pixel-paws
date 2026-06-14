@@ -96,7 +96,7 @@ export default function RiversideWarmup({ onFinish }: { onFinish?: () => void })
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/src/assets/images/backgrounds/riverside-cold.png" 
+          src="./src/assets/images/backgrounds/riverside-cold.png" 
           alt="Riverside" 
           className="w-full h-full object-cover"
           style={{ 
@@ -174,7 +174,7 @@ export default function RiversideWarmup({ onFinish }: { onFinish?: () => void })
             : { duration: 0.3 }
         }}
       >
-        <img src="/src/assets/images/items/towel.png" className="w-full h-full object-contain drop-shadow-2xl" alt="Towel" />
+        <img src="./src/assets/images/items/towel.png" className="w-full h-full object-contain drop-shadow-2xl" alt="Towel" />
       </motion.div>
 
       {/* UI Overlay */}

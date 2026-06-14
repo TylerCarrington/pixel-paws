@@ -78,7 +78,7 @@ export default function OpeningSequence({ onFinish }: OpeningSequenceProps) {
       <div className="opening-background-container">
         <div 
           className="opening-background" 
-          style={{ backgroundImage: `url('/src/assets/images/outside-house.jpeg')` }}
+          style={{ backgroundImage: `url('./src/assets/images/outside-house.jpeg')` }}
         />
         <div className="opening-overlay" />
       </div>
@@ -89,7 +89,7 @@ export default function OpeningSequence({ onFinish }: OpeningSequenceProps) {
         {currentBeat?.portrait && (
           <div className="marigold-portrait-container" style={{ opacity: currentBeat.speaker ? 1 : 0 }}>
             <img 
-              src="/src/assets/images/marigold.png" 
+              src="./src/assets/images/marigold.png" 
               alt="Marigold"
               className="marigold-portrait"
             />

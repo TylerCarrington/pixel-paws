@@ -19,7 +19,7 @@ export class PettingInteractionScene extends Phaser.Scene {
     const spriteKey = breed ? breed.spriteKey : 'husky';
     
     // Fallback URL if we only have husky right now
-    const url = `/src/assets/images/animals/dogs/${spriteKey}.png`;
+    const url = `./src/assets/images/animals/dogs/${spriteKey}.png`;
     
     // We only load if not already loaded
     if (!this.textures.exists(spriteKey)) {

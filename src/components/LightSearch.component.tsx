@@ -116,7 +116,7 @@ export default function LightSearch({ onFinish }: { onFinish?: () => void }) {
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/src/assets/images/construction‑shed.png" 
+          src="./src/assets/images/construction‑shed.png" 
           className="w-full h-full object-cover"
           alt="Construction Shed"
           onError={(e) => {
