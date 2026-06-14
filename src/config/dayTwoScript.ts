@@ -137,7 +137,7 @@ export const dayTwoScript = [
     type: 'dialogue',
     speaker: null,
     portrait: null,
-    text: 'Two animals in two days.'
+    text: 'Two animals in two days.',
     style: 'narration'
   },
   {
@@ -223,7 +223,7 @@ export const dayTwoScript = [
     type: 'dialogue',
     speaker: null,
     portrait: null,
-    text: '{{firstPetName}} was waiting patiently in the main room.'
+    text: '{{firstPetName}} was waiting patiently in the main room.',
     style: 'narration'
   },
   {
