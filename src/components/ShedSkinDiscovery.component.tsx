@@ -3,6 +3,7 @@ import { useGameStore } from '../stores/game.store';
 import { motion, AnimatePresence } from 'framer-motion';
 import DialoguePanel from './DialoguePanel';
 import AnimalSprite from './AnimalSprite.component';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 const SEARCH_AREAS = [
   { id: 'haybales', label: 'Hay Bales', top: '30%', left: '20%' },
@@ -131,7 +132,7 @@ export default function ShedSkinDiscovery({ onFinish }: { onFinish?: () => void 
     <div className="fixed inset-0 z-50 overflow-hidden font-pixel bg-stone-900 select-none">
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('./src/assets/images/backgrounds/barn-interior.png')" }}
+        style={{ backgroundImage: `url('${getAssetUrl('./src/assets/images/backgrounds/barn-interior.png')}')` }}
       />
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 

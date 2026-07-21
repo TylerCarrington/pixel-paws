@@ -3,6 +3,7 @@ import { useGameStore } from '../stores/game.store';
 import { motion, AnimatePresence } from 'framer-motion';
 import DialoguePanel from './DialoguePanel';
 import AnimalSprite from './AnimalSprite.component';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 const SPOTS = [
   { id: 'spot1', top: '30%', left: '15%', width: '15%', height: '15%', zIndex: 50 },
@@ -110,7 +111,7 @@ export default function SunbeamSeeker({ onFinish }: { onFinish?: () => void }) {
       {/* Greenhouse Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('./src/assets/images/backgrounds/greenhouse.png')" }}
+        style={{ backgroundImage: `url('${getAssetUrl('./src/assets/images/backgrounds/greenhouse.png')}')` }}
       />
       
       {/* Timer Bar */}

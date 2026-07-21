@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useGameStore } from '../stores/game.store';
 import { getAnimalSpriteSrc } from '../logic/animalAssets.logic';
 import { Species } from '../types/animal.types';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 export default function WheelInjury({ onFinish }: { onFinish?: () => void }) {
   const setPhase6State = useGameStore(state => state.setPhase6State);
@@ -60,7 +61,7 @@ export default function WheelInjury({ onFinish }: { onFinish?: () => void }) {
     >
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('./src/assets/images/backgrounds/wheel-injury.png')" }}
+        style={{ backgroundImage: `url('${getAssetUrl('./src/assets/images/backgrounds/wheel-injury.png')}')` }}
       />
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       <div className="absolute top-8 left-0 right-0 px-6 z-20 text-center pointer-events-none">

@@ -7,6 +7,7 @@ import AvatarPlaceholder from './AvatarPlaceholder.component';
 import HealthCertBadge from './HealthCertBadge.component';
 import { determineMood } from '../logic/moodState.logic';
 import { getBreedDefinition } from '../logic/animalAssets.logic';
+import { Lock } from 'lucide-react';
 
 interface PetCardProps {
   animal: Animal;
@@ -40,8 +41,13 @@ export default function PetCard({ animal }: PetCardProps) {
           <div className="absolute top-2 right-2">
             <RarityBadge rarity={animal.rarity} />
           </div>
-          <div className="absolute top-2 left-2">
+          <div className="absolute top-2 left-2 flex items-center gap-1">
             <MoodIndicator mood={mood} />
+            {animal.isLocked && (
+              <div className="bg-amber-glow text-warm-brown p-1 rounded-full shadow-md border border-white/60" title="Locked from adoption">
+                <Lock size={10} />
+              </div>
+            )}
           </div>
           {animal.hasHealthCertificate && (
             <div className="absolute bottom-2 left-2 scale-75 origin-bottom-left">

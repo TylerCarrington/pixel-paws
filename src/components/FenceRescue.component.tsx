@@ -3,6 +3,7 @@ import { useGameStore } from '../stores/game.store';
 import AnimalSprite from './AnimalSprite.component';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, Link as LinkIcon } from 'lucide-react';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 export default function FenceRescue({ onFinish }: { onFinish?: () => void }) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
@@ -90,7 +91,7 @@ export default function FenceRescue({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/backgrounds/playground.png" 
+          src={getAssetUrl("./src/assets/images/backgrounds/playground.png")} 
           className="w-full h-full object-cover opacity-80"
           alt="School Playground"
           onError={(e) => {

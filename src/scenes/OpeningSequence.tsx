@@ -5,6 +5,7 @@ import DialoguePanel from '../components/DialoguePanel';
 import NameInputPanel from '../components/NameInputPanel';
 import TownInputPanel from '../components/TownInputPanel';
 import BlossomLayer from '../components/BlossomLayer';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 import '../styles/opening.css';
 
 interface OpeningSequenceProps {
@@ -78,7 +79,7 @@ export default function OpeningSequence({ onFinish }: OpeningSequenceProps) {
       <div className="opening-background-container">
         <div 
           className="opening-background" 
-          style={{ backgroundImage: `url('./src/assets/images/backgrounds/outside-house.jpeg')` }}
+          style={{ backgroundImage: `url('${getAssetUrl('./src/assets/images/backgrounds/outside-house.jpeg')}')` }}
         />
         <div className="opening-overlay" />
       </div>
@@ -89,7 +90,7 @@ export default function OpeningSequence({ onFinish }: OpeningSequenceProps) {
         {currentBeat?.portrait && (
           <div className="marigold-portrait-container" style={{ opacity: currentBeat.speaker ? 1 : 0 }}>
             <img 
-              src="./src/assets/images/items/marigold.png" 
+              src={getAssetUrl("./src/assets/images/items/marigold.png")} 
               alt="Marigold"
               className="marigold-portrait"
             />

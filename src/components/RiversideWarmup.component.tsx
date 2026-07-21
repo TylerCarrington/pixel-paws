@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useGameStore } from '../stores/game.store';
 import AnimalSprite from './AnimalSprite.component';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 export default function RiversideWarmup({ onFinish }: { onFinish?: () => void }) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
@@ -96,7 +97,7 @@ export default function RiversideWarmup({ onFinish }: { onFinish?: () => void })
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/backgrounds/riverside-cold.png" 
+          src={getAssetUrl("./src/assets/images/backgrounds/riverside-cold.png")} 
           alt="Riverside" 
           className="w-full h-full object-cover"
           style={{ 
@@ -175,7 +176,7 @@ export default function RiversideWarmup({ onFinish }: { onFinish?: () => void })
             : { duration: 0.3 }
         }}
       >
-        <img src="./src/assets/images/items/towel.png" className="w-full h-full object-contain drop-shadow-2xl" alt="Towel" />
+        <img src={getAssetUrl("./src/assets/images/items/towel.png")} className="w-full h-full object-contain drop-shadow-2xl" alt="Towel" />
       </motion.div>
 
       {/* UI Overlay */}

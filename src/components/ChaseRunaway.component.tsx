@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'motion/react';
 import { useGameStore } from '../stores/game.store';
 import AnimalSprite from './AnimalSprite.component';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 interface Obstacle {
   id: number;
@@ -187,10 +188,10 @@ export default function ChaseRunaway({ onFinish }: { onFinish?: () => void }) {
             className="flex min-w-max h-full"
             animate={bgControls}
          >
-           <img src="./src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80" />
-           <img src="./src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80 scale-x-[-1]" />
-           <img src="./src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80" />
-           <img src="./src/assets/images/backgrounds/downtown-village.png" className="h-full w-[100vw] object-cover opacity-80 scale-x-[-1]" />
+           <img src={getAssetUrl("./src/assets/images/backgrounds/downtown-village.png")} className="h-full w-[100vw] object-cover opacity-80" />
+           <img src={getAssetUrl("./src/assets/images/backgrounds/downtown-village.png")} className="h-full w-[100vw] object-cover opacity-80 scale-x-[-1]" />
+           <img src={getAssetUrl("./src/assets/images/backgrounds/downtown-village.png")} className="h-full w-[100vw] object-cover opacity-80" />
+           <img src={getAssetUrl("./src/assets/images/backgrounds/downtown-village.png")} className="h-full w-[100vw] object-cover opacity-80 scale-x-[-1]" />
          </motion.div>
          {/* Dimmer overlay logic */}
          <div className={`absolute inset-0 transition-colors duration-1000 ${isComplete ? 'bg-black/20' : 'bg-black/40'}`} />
@@ -244,7 +245,7 @@ export default function ChaseRunaway({ onFinish }: { onFinish?: () => void }) {
                   handleTapObstacle(obs.id);
                 }}
               >
-                <img src={obs.imageSrc} className="w-full h-full object-contain pointer-events-none" />
+                <img src={getAssetUrl(obs.imageSrc)} className="w-full h-full object-contain pointer-events-none" />
                 
                 {/* Visual HP Indicator */}
                 {!obs.cleared && obs.maxHp > 1 && (

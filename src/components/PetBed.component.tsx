@@ -7,6 +7,7 @@ import MoodIndicator from './MoodIndicator.component';
 import DesirabilityBar from './DesirabilityBar.component';
 import { getBreedDefinition } from '../logic/animalAssets.logic';
 import petBedImg from '../assets/images/items/pet-bed.png';
+import { Lock } from 'lucide-react';
 
 interface PetBedProps {
   animal?: Animal;
@@ -37,6 +38,16 @@ export default function PetBed({ animal, position, onClick }: PetBedProps) {
 
         {animal && breed && (
           <div className="relative z-10 flex flex-col items-center translate-y-[-8px]">
+            {/* Lock Badge */}
+            {animal.isLocked && (
+              <div 
+                className="absolute -top-8 -left-4 z-20 bg-amber-glow text-warm-brown p-1 rounded-full shadow-md border border-white/60" 
+                title="Locked from adoption"
+              >
+                <Lock size={12} />
+              </div>
+            )}
+
             {/* Mood Dot */}
             <div className="absolute -top-8 -right-4 z-20 flex flex-col items-center gap-1">
               <MoodIndicator mood={animal.mood} />

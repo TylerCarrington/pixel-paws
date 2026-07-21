@@ -71,34 +71,34 @@ export default function GamesDebug() {
   }, [filterCategory]);
 
   const games = [
-    { id: 'alley', name: 'Alley Rescue (Scared Dog)', component: AlleyRescue, category: 'Dog' },
-    { id: 'fence', name: 'Fence Rescue (Tangled Dog)', component: FenceRescue, category: 'Dog' },
-    { id: 'light', name: 'Light Search (Shed Dog)', component: LightSearch, category: 'Dog' },
-    { id: 'food', name: 'Food Tempt (Market Dog)', component: FoodTempt, category: 'Dog' },
-    { id: 'woodpile', name: 'Woodpile Rescue (Trapped Dog)', component: WoodpileRescue, category: 'Dog' },
-    { id: 'chase', name: 'Chase Runaway (Village Dog)', component: ChaseRunaway, category: 'Dog' },
-    { id: 'porch', name: 'Porch Rescue (Stray Cat)', component: PorchRescue, category: 'Cat' },
-    { id: 'riverside', name: 'Riverside Warmup (Wet Dog)', component: RiversideWarmup, category: 'Dog' },
-    { id: 'park', name: 'Park Rescue (Injured Dog)', component: ParkInjured, category: 'Dog' },
-    { id: 'bush', name: 'Bush Search (Find Dog)', component: BushSearch, category: 'Dog' },
+    { id: 'alley', name: 'Alley Rescue (Scared Animal)', component: AlleyRescue, categories: ['Dog', 'Cat'] },
+    { id: 'fence', name: 'Fence Rescue (Tangled Animal)', component: FenceRescue, categories: ['Dog', 'Cat'] },
+    { id: 'light', name: 'Light Search (Shed Search)', component: LightSearch, categories: ['Dog', 'Cat'] },
+    { id: 'food', name: 'Food Tempt (Market Animal)', component: FoodTempt, categories: ['Dog', 'Cat'] },
+    { id: 'woodpile', name: 'Woodpile Rescue (Trapped Animal)', component: WoodpileRescue, categories: ['Dog', 'Cat'] },
+    { id: 'chase', name: 'Chase Runaway (Village Runaway)', component: ChaseRunaway, categories: ['Dog', 'Cat'] },
+    { id: 'porch', name: 'Porch Rescue (Stray Cat / Hider)', component: PorchRescue, categories: ['Dog', 'Cat'] },
+    { id: 'riverside', name: 'Riverside Warmup (Wet Animal)', component: RiversideWarmup, categories: ['Dog', 'Cat'] },
+    { id: 'park', name: 'Park Rescue (Injured Animal)', component: ParkInjured, categories: ['Dog', 'Cat'] },
+    { id: 'bush', name: 'Bush Search (Find Animal)', component: BushSearch, categories: ['Dog', 'Cat'] },
     
-    { id: 'sunbeam', name: 'Sunbeam Seeker (Reptile)', component: SunbeamSeeker, category: 'Reptile' },
-    { id: 'turtle-temp', name: 'Temperature Match (Turtle)', component: TemperatureRegulation, category: 'Reptile' },
-    { id: 'reptile-scales', name: 'Scales Check (Reptile)', component: ShellCheck, category: 'Reptile' },
-    { id: 'reptile-rock', name: 'Rock Hiding (Reptile)', component: RockHiding, category: 'Reptile' },
-    { id: 'reptile-shed', name: 'Shed Skin (Reptile)', component: ShedSkinDiscovery, category: 'Reptile' },
+    { id: 'sunbeam', name: 'Sunbeam Seeker (Reptile)', component: SunbeamSeeker, categories: ['Reptile'] },
+    { id: 'turtle-temp', name: 'Temperature Match (Turtle)', component: TemperatureRegulation, categories: ['Reptile'] },
+    { id: 'reptile-scales', name: 'Scales Check (Reptile)', component: ShellCheck, categories: ['Reptile'] },
+    { id: 'reptile-rock', name: 'Rock Hiding (Reptile)', component: RockHiding, categories: ['Reptile'] },
+    { id: 'reptile-shed', name: 'Shed Skin (Reptile)', component: ShedSkinDiscovery, categories: ['Reptile'] },
     
-    { id: 'wall-squeak', name: 'Wall Squeak (Small Animal)', component: WallSqueak, category: 'Small Animal' },
-    { id: 'tube-stuck', name: 'Tube Stuck (Small Animal)', component: TubeStuck, category: 'Small Animal' },
-    { id: 'burrow-collapse', name: 'Burrow Collapse (Small Animal)', component: BurrowCollapse, category: 'Small Animal' },
-    { id: 'wheel-injury', name: 'Wheel Injury (Small Animal)', component: WheelInjury, category: 'Small Animal' },
-    { id: 'bedding', name: 'Bedding Breather (Small Animal)', component: BeddingBreather, category: 'Small Animal' },
+    { id: 'wall-squeak', name: 'Wall Squeak (Small Animal)', component: WallSqueak, categories: ['Small Animal'] },
+    { id: 'tube-stuck', name: 'Tube Stuck (Small Animal)', component: TubeStuck, categories: ['Small Animal'] },
+    { id: 'burrow-collapse', name: 'Burrow Collapse (Small Animal)', component: BurrowCollapse, categories: ['Small Animal'] },
+    { id: 'wheel-injury', name: 'Wheel Injury (Small Animal)', component: WheelInjury, categories: ['Small Animal'] },
+    { id: 'bedding', name: 'Bedding Breather (Small Animal)', component: BeddingBreather, categories: ['Small Animal'] },
 
-    { id: 'wash', name: 'Wash Rescue (Muddy Dog)', component: ({ onFinish }: any) => <ReactWashInteraction isRescue={true} onFinish={onFinish} />, category: 'Dog' },
-    { id: 'anim', name: 'Animation Debugger', component: AnimationDebug, category: 'Other' },
+    { id: 'wash', name: 'Wash Rescue (Muddy Animal)', component: ({ onFinish }: any) => <ReactWashInteraction isRescue={true} onFinish={onFinish} />, categories: ['Dog', 'Cat'] },
+    { id: 'anim', name: 'Animation Debugger', component: AnimationDebug, categories: ['Other'] },
   ];
 
-  const filteredGames = games.filter(g => filterCategory === 'All' || g.category === filterCategory);
+  const filteredGames = games.filter(g => filterCategory === 'All' || g.categories.includes(filterCategory));
 
   if (activeGame) {
     const GameComponent = games.find(g => g.id === activeGame)?.component;

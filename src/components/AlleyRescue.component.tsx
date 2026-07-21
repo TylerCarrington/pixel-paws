@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useGameStore } from '../stores/game.store';
 import AnimalSprite from './AnimalSprite.component';
 import { motion, AnimatePresence } from 'motion/react';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 type DogState = 'calm' | 'nervous';
 
@@ -76,7 +77,7 @@ export default function AlleyRescue({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/backgrounds/back-alley.png" 
+          src={getAssetUrl("./src/assets/images/backgrounds/back-alley.png")} 
           className="w-full h-full object-cover opacity-60"
           alt="Back Alley"
           onError={(e) => {

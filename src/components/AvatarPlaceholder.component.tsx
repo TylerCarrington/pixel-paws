@@ -1,12 +1,13 @@
 import React from 'react';
 import { Species } from '../types/animal.types';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 export default function AvatarPlaceholder({ spriteKey, species = Species.DOG }: { spriteKey: string, species?: Species }) {
   const folder = species === Species.CAT ? 'cats' : 'dogs';
   return (
     <div className="w-16 h-16 rounded overflow-hidden bg-stone-grey/10 flex items-center justify-center p-2 text-6xl">
       <img
-        src={`./src/assets/images/animals/${folder}/${spriteKey}.png`}
+        src={getAssetUrl(`./src/assets/images/animals/${folder}/${spriteKey}.png`)}
         className="w-full h-full object-contain pixelated"
         style={{ imageRendering: 'pixelated' }}
         alt="Pet"

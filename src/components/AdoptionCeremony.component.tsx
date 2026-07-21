@@ -4,6 +4,7 @@ import AdoptionResultCard from './AdoptionResultCard.component';
 import PayoutSummary from './PayoutSummary.component';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SHELTER_LISTINGS } from '../config/shelters.config';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 import outsideHouseBg from '../assets/images/backgrounds/outside-house.jpeg';
 
 export default function AdoptionCeremony() {
@@ -67,7 +68,7 @@ export default function AdoptionCeremony() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={bgImage} 
+          src={getAssetUrl(bgImage)} 
           alt="Ceremony Background" 
           className="w-full h-full object-cover" 
         />

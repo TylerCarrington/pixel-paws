@@ -4,6 +4,7 @@ import DialoguePanel from '../components/DialoguePanel';
 import NameInputPanel from '../components/NameInputPanel';
 import BlossomLayer from '../components/BlossomLayer';
 import { SHELTER_LISTINGS } from '../config/shelters.config';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 import '../styles/opening.css'; // Reuse opening styles for consistency
 
 interface ShelterPurchaseSceneProps {
@@ -68,7 +69,7 @@ export default function ShelterPurchaseScene({ onFinish }: ShelterPurchaseSceneP
       <div className="opening-background-container">
         <div 
           className="opening-background" 
-          style={{ backgroundImage: `url('${bgImage}')` }}
+          style={{ backgroundImage: `url('${getAssetUrl(bgImage)}')` }}
         />
         <div className="opening-overlay" />
       </div>
@@ -78,7 +79,7 @@ export default function ShelterPurchaseScene({ onFinish }: ShelterPurchaseSceneP
       <div className="dialogue-wrapper">
         <div className="marigold-portrait-container" style={{ opacity: currentBeat?.speaker ? 1 : 0 }}>
           <img 
-            src="./src/assets/images/items/marigold.png" 
+            src={getAssetUrl("./src/assets/images/items/marigold.png")} 
             alt="Marigold"
             className="marigold-portrait"
           />

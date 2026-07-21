@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useGameStore } from '../stores/game.store';
 import AnimalSprite from './AnimalSprite.component';
 import { motion, AnimatePresence } from 'motion/react';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 interface LogItem {
   id: number;
@@ -132,7 +133,7 @@ export default function WoodpileRescue({ onFinish }: { onFinish?: () => void }) 
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/backgrounds/woodpile.png" 
+          src={getAssetUrl("./src/assets/images/backgrounds/woodpile.png")} 
           className="w-full h-full object-cover opacity-80"
           alt="Woodpile Backyard"
           onError={(e) => {
@@ -196,7 +197,7 @@ export default function WoodpileRescue({ onFinish }: { onFinish?: () => void }) 
                   rotate: `${log.rotate}deg`,
                   zIndex: log.zIndex,
                   // Use the standalone cropped sprite image
-                  backgroundImage: `url(${log.imageSrc})`,
+                  backgroundImage: `url(${getAssetUrl(log.imageSrc)})`,
                   backgroundSize: 'contain',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',

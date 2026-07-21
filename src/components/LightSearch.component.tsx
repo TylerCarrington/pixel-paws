@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useGameStore } from '../stores/game.store';
 import AnimalSprite from './AnimalSprite.component';
 import { motion, AnimatePresence } from 'motion/react';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 export default function LightSearch({ onFinish }: { onFinish?: () => void }) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
@@ -116,7 +117,7 @@ export default function LightSearch({ onFinish }: { onFinish?: () => void }) {
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/backgrounds/construction-shed.png" 
+          src={getAssetUrl("./src/assets/images/backgrounds/shed.png")} 
           className="w-full h-full object-cover"
           alt="Construction Shed"
           onError={(e) => {

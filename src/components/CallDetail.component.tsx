@@ -2,6 +2,7 @@ import React from 'react';
 import { DailyCall } from '../types/calls.types';
 import { useGameStore } from '../stores/game.store';
 import { DiscoveryMethod } from '../types/animal.types';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 interface CallDetailProps {
   call: DailyCall;
@@ -11,7 +12,7 @@ interface CallDetailProps {
 const LOCATION_BACKGROUNDS: Record<string, string> = {
   [DiscoveryMethod.SCARED_APPROACH]: './src/assets/images/backgrounds/back-alley.png',
   [DiscoveryMethod.FOOD_TEMPT]: './src/assets/images/backgrounds/back-alley.png',
-  [DiscoveryMethod.DARK_SEARCH]: './src/assets/images/backgrounds/construction-shed.png',
+  [DiscoveryMethod.DARK_SEARCH]: './src/assets/images/backgrounds/shed.png',
   [DiscoveryMethod.WOODPILE_TRAPPED]: './src/assets/images/backgrounds/woodpile.png',
   [DiscoveryMethod.RUNAWAY_CHASE]: './src/assets/images/backgrounds/downtown-village.png',
   [DiscoveryMethod.PORCH_HIDING]: './src/assets/images/backgrounds/porch.png',
@@ -24,7 +25,7 @@ const LOCATION_BACKGROUNDS: Record<string, string> = {
   [DiscoveryMethod.PARK_FIND]: './src/assets/images/backgrounds/park-with-benches.png',
   [DiscoveryMethod.BACKYARD_STRAY]: './src/assets/images/backgrounds/porch.png',
   [DiscoveryMethod.POLICE_DROP]: './src/assets/images/backgrounds/marketplace.png',
-  [DiscoveryMethod.SOUND]: './src/assets/images/backgrounds/construction-shed.png',
+  [DiscoveryMethod.SOUND]: './src/assets/images/backgrounds/shed.png',
   [DiscoveryMethod.TANGLED]: './src/assets/images/backgrounds/park-fountain.png',
 };
 
@@ -65,7 +66,7 @@ export default function CallDetail({ call, onRespond }: CallDetailProps) {
       <div className="flex-1 overflow-y-auto pr-2 mb-4 scrollbar-thin scrollbar-thumb-soft-rose/30 space-y-4">
         <div className="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-soft-rose/20 shadow-inner group shrink-0">
            <img 
-             src={bgImage} 
+             src={getAssetUrl(bgImage)} 
              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
              alt="Rescue Location" 
            />

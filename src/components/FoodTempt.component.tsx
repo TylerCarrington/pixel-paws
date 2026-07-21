@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useGameStore } from '../stores/game.store';
 import AnimalSprite from './AnimalSprite.component';
 import { motion, AnimatePresence } from 'motion/react';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 export default function FoodTempt({ onFinish }: { onFinish?: () => void }) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
@@ -118,7 +119,7 @@ export default function FoodTempt({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/backgrounds/marketplace.png" 
+          src={getAssetUrl("./src/assets/images/backgrounds/marketplace.png")} 
           className="w-full h-full object-cover opacity-60"
           alt="Marketplace"
           onError={(e) => {
@@ -145,7 +146,7 @@ export default function FoodTempt({ onFinish }: { onFinish?: () => void }) {
               transform: 'translate(-50%, -50%)',
             }}
           >
-            <img src="./src/assets/images/items/pet-treat.png" alt="Treat" className="w-full h-full object-contain" />
+            <img src={getAssetUrl("./src/assets/images/items/pet-treat.png")} alt="Treat" className="w-full h-full object-contain" />
           </motion.div>
         )}
       </AnimatePresence>

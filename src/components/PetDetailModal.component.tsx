@@ -7,7 +7,7 @@ import MoodIndicator from './MoodIndicator.component';
 import DecorationMode from './DecorationMode.component';
 import OutfitSelector from './OutfitSelector.component';
 import { getBreedDefinition } from '../logic/animalAssets.logic';
-import { Heart, Utensils, Baby, Sparkles, X, Edit2, Palette } from 'lucide-react';
+import { Heart, Utensils, Baby, Sparkles, X, Edit2, Palette, Lock, Unlock } from 'lucide-react';
 
 interface PetDetailModalProps {
   animal: Animal;
@@ -19,6 +19,7 @@ export default function PetDetailModal({ animal: initialAnimal, onClose }: PetDe
   const ownedPets = useGameStore(state => state.ownedPets);
   const performCareAction = useGameStore(state => state.performCareAction);
   const nameShelterAnimal = useGameStore(state => state.nameShelterAnimal);
+  const toggleLockShelterAnimal = useGameStore(state => state.toggleLockShelterAnimal);
   const actionsPerPetToday = useGameStore(state => state.actionsPerPetToday);
   const bringPetHome = useGameStore(state => state.bringPetHome);
   const homeDogCapacity = useGameStore(state => state.homeDogCapacity);
@@ -280,6 +281,34 @@ export default function PetDetailModal({ animal: initialAnimal, onClose }: PetDe
                 );
               })}
             </div>
+
+            {!animal.isMine && (
+              <div className="mt-1 bg-stone-grey/5 p-2.5 rounded-2xl border border-stone-grey/10 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <div className={`p-2 rounded-xl transition-colors ${animal.isLocked ? 'bg-amber-glow text-warm-brown shadow-sm' : 'bg-stone-grey/10 text-stone-grey'}`}>
+                    {animal.isLocked ? <Lock size={14} /> : <Unlock size={14} />}
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-pixel text-night-plum uppercase tracking-wider">
+                      {animal.isLocked ? 'Hold Active (Locked)' : 'Open for Adoption'}
+                    </p>
+                    <p className="text-[8px] font-pixel text-stone-grey leading-tight mt-0.5">
+                      {animal.isLocked ? 'Protected from adoption ceremony' : 'Can be adopted by visiting families'}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => toggleLockShelterAnimal(animal.id)}
+                  className={`px-3 py-2 rounded-xl font-pixel text-[8px] uppercase tracking-widest transition-all active:scale-95 shrink-0 ${
+                    animal.isLocked
+                      ? 'bg-amber-glow text-warm-brown font-bold hover:brightness-105 shadow-sm'
+                      : 'bg-stone-grey/10 text-stone-grey hover:bg-stone-grey/20'
+                  }`}
+                >
+                  {animal.isLocked ? 'Unlock' : 'Lock Hold'}
+                </button>
+              </div>
+            )}
 
             {animal.isMine && (
               <div className="flex flex-col gap-3 pt-2 border-t border-stone-grey/10">

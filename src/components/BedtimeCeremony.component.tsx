@@ -9,6 +9,7 @@ import dogHouseBg from '../assets/images/backgrounds/dog-house-interior.png';
 import bedroomBg from '../assets/images/backgrounds/house-interior.png';
 import familyRoomBg from '../assets/images/backgrounds/family-room.png';
 import { DECORATIONS } from '../constants/decorations.constants';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 interface BedtimeCeremonyProps {
   pets: Animal[];
@@ -185,7 +186,7 @@ export default function BedtimeCeremony({ pets, onComplete }: BedtimeCeremonyPro
                       }}
                     >
                       <img 
-                        src={item.image} 
+                        src={getAssetUrl(item.image)} 
                         alt={item.name} 
                         style={{ width: item.width * 2, height: item.height * 2 }} 
                         className="drop-shadow-lg pointer-events-none"

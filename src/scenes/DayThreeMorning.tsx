@@ -4,6 +4,7 @@ import { dayThreeScript } from '../config/dayThreeScript';
 import DialoguePanel from '../components/DialoguePanel';
 import { AnimatePresence, motion } from 'framer-motion';
 import BlossomLayer from '../components/BlossomLayer';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 import '../styles/opening.css';
 
 interface DayThreeMorningProps {
@@ -96,7 +97,7 @@ export default function DayThreeMorning({ onFinish, startBeatId }: DayThreeMorni
         <div 
           className="opening-background"
           style={{ 
-            backgroundImage: `url('${currentBg}')`,
+            backgroundImage: `url('${getAssetUrl(currentBg)}')`,
             opacity: bgTransitioning ? 0 : 1,
             transition: 'opacity 1.2s ease-in-out'
           }}

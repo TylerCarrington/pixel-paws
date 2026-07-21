@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Home, Star, MapPin, Sparkles, X, Check } from 'lucide-react';
 import { useGameStore } from '../stores/game.store';
 import { SHELTER_LISTINGS, ShelterListing } from '../config/shelters.config';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 interface ShelterListingsProps {
   onClose: () => void;
@@ -70,7 +71,7 @@ export default function ShelterListings({ onClose, onPurchaseComplete }: Shelter
               {/* Image */}
               <div className="w-1/3 shrink-0 relative rounded-xl overflow-hidden shadow-inner bg-stone-100">
                 <img 
-                  src={listing.image} 
+                  src={getAssetUrl(listing.image)} 
                   alt={listing.name} 
                   className="w-full h-full object-cover"
                 />

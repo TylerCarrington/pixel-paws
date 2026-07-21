@@ -5,7 +5,7 @@ import SpareRoomScene from './SpareRoomScene.component';
 import ShelterInteriorScene from './ShelterInteriorScene.component';
 import ShelterListings from './ShelterListings.component';
 import ShelterTutorial from './ShelterTutorial.component';
-import { ChevronDown, Dog, Cat } from 'lucide-react';
+import { Dog, Cat } from 'lucide-react';
 
 export default function ShelterFloor() {
   const dayNumber = useGameStore(state => state.dayNumber);
@@ -21,7 +21,6 @@ export default function ShelterFloor() {
   
   const [showListings, setShowListings] = useState(false);
   const [activeRoom, setActiveRoom] = useState<'DOG' | 'CAT'>('DOG');
-  const [showRoomDropdown, setShowRoomDropdown] = useState(false);
   const [showTutorial, setShowTutorial] = useState(() => {
     return !spareRoomAccessible && !localStorage.getItem('shelterTutorialSeen');
   });
@@ -40,7 +39,7 @@ export default function ShelterFloor() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-[#e0d5c5]">
+    <div className="flex flex-col h-full bg-[#e0d5c5] relative">
       {showTutorial && <ShelterTutorial onDismiss={handleDismissTutorial} />}
       <div className="flex-1 relative">
          {spareRoomAccessible ? <SpareRoomScene /> : <ShelterInteriorScene activeRoom={activeRoom} />}
@@ -68,42 +67,6 @@ export default function ShelterFloor() {
           >
              Shop
           </button>
-          
-          {!spareRoomAccessible && catsUnlocked && (
-             <div className="relative pointer-events-auto">
-               <button 
-                 onClick={() => setShowRoomDropdown(!showRoomDropdown)}
-                 className="bg-warm-cream/90 hover:bg-white text-night-plum px-4 py-3 font-pixel text-[10px] rounded-xl transition-all uppercase tracking-widest shadow-xl active:scale-95 border border-white/40 flex items-center gap-2"
-               >
-                 {activeRoom === 'DOG' ? <Dog size={14}/> : <Cat size={14}/>}
-                 Rooms
-                 <ChevronDown size={14} className={`transition-transform ${showRoomDropdown ? 'rotate-180' : ''}`} />
-               </button>
-               
-               {showRoomDropdown && (
-                 <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-2xl border border-stone-grey/20 overflow-hidden flex flex-col min-w-[140px] z-50">
-                   <button 
-                     onClick={() => { setActiveRoom('DOG'); setShowRoomDropdown(false); }}
-                     className={`px-4 py-3 text-left font-pixel text-[10px] uppercase tracking-widest flex items-center justify-between gap-4 hover:bg-sage-green/20 ${activeRoom === 'DOG' ? 'bg-sage-green/10 text-night-plum' : 'text-stone-grey'}`}
-                   >
-                     <div className="flex items-center gap-2">
-                       <Dog size={14}/> Dogs
-                     </div>
-                     <span className="opacity-60">{dogsCount}/{shelterCapacity}</span>
-                   </button>
-                   <button 
-                     onClick={() => { setActiveRoom('CAT'); setShowRoomDropdown(false); }}
-                     className={`px-4 py-3 text-left font-pixel text-[10px] uppercase tracking-widest flex items-center justify-between gap-4 hover:bg-sage-green/20 ${activeRoom === 'CAT' ? 'bg-sage-green/10 text-night-plum' : 'text-stone-grey'}`}
-                   >
-                     <div className="flex items-center gap-2">
-                       <Cat size={14}/> Cats
-                     </div>
-                     <span className="opacity-60">{catsCount}/{catCapacity}</span>
-                   </button>
-                 </div>
-               )}
-             </div>
-          )}
 
           {spareRoomAccessible && money >= 500 && (
             <button 
@@ -123,6 +86,45 @@ export default function ShelterFloor() {
         </button>
       </div>
 
+      {/* Bottom Room Switcher Bar */}
+      {!spareRoomAccessible && catsUnlocked && (
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 pointer-events-auto bg-black/50 backdrop-blur-md p-1.5 rounded-2xl border border-white/20 flex items-center gap-2 shadow-2xl">
+          <button 
+            onClick={() => setActiveRoom('DOG')}
+            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-pixel text-[10px] uppercase tracking-wider transition-all ${
+              activeRoom === 'DOG' 
+                ? 'bg-warm-cream text-night-plum shadow-lg scale-105 font-bold' 
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            <Dog size={16} />
+            <span>Dogs</span>
+            <span className={`px-2 py-0.5 rounded-md text-[9px] font-mono ${
+              activeRoom === 'DOG' ? 'bg-night-plum/10 text-night-plum font-bold' : 'bg-white/15 text-white'
+            }`}>
+              {dogsCount}/{shelterCapacity}
+            </span>
+          </button>
+
+          <button 
+            onClick={() => setActiveRoom('CAT')}
+            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-pixel text-[10px] uppercase tracking-wider transition-all ${
+              activeRoom === 'CAT' 
+                ? 'bg-warm-cream text-night-plum shadow-lg scale-105 font-bold' 
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            <Cat size={16} />
+            <span>Cats</span>
+            <span className={`px-2 py-0.5 rounded-md text-[9px] font-mono ${
+              activeRoom === 'CAT' ? 'bg-night-plum/10 text-night-plum font-bold' : 'bg-white/15 text-white'
+            }`}>
+              {catsCount}/{catCapacity}
+            </span>
+          </button>
+        </div>
+      )}
+
       {showListings && (
         <ShelterListings 
           onClose={() => setShowListings(false)} 
@@ -135,4 +137,5 @@ export default function ShelterFloor() {
     </div>
   );
 }
+
 

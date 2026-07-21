@@ -87,4 +87,5 @@ export interface Animal {
   };
   homeLocation?: 'bedroom' | 'dogHouse' | 'familyRoom' | 'sunroom' | 'studyRoom';
   dailyXPFlags?: Partial<Record<'pet' | 'feed' | 'play' | 'groom', boolean>>;
+  isLocked?: boolean;
 }

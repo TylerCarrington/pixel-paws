@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useGameStore } from '../stores/game.store';
 import AnimalSprite from './AnimalSprite.component';
 import { Heart, Hand } from 'lucide-react';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 export default function ParkInjured({ onFinish }: { onFinish?: () => void }) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
@@ -137,7 +138,7 @@ export default function ParkInjured({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/backgrounds/park-with-benches.png" 
+          src={getAssetUrl("./src/assets/images/backgrounds/park-with-benches.png")} 
           alt="Park" 
           className="w-full h-full object-cover"
           style={{ 
@@ -184,7 +185,7 @@ export default function ParkInjured({ onFinish }: { onFinish?: () => void }) {
               }}
             >
               <img 
-                src="./src/assets/images/items/thorn.png" 
+                src={getAssetUrl("./src/assets/images/items/thorn.png")} 
                 className="w-full h-full object-contain filter drop-shadow-md" 
                 alt="Thorn" 
               />

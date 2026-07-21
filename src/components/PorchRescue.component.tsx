@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useGameStore } from '../stores/game.store';
 import AnimalSprite from './AnimalSprite.component';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 export default function PorchRescue({ onFinish }: { onFinish?: () => void }) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
@@ -95,7 +96,7 @@ export default function PorchRescue({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/backgrounds/porch.png" 
+          src={getAssetUrl("./src/assets/images/backgrounds/porch.png")} 
           alt="Porch" 
           className="w-full h-full object-cover object-bottom"
           style={{ filter: `brightness(${isComplete ? 1 : 0.5}) saturate(${isComplete ? 1 : 0.8})`, transition: 'all 3s ease' }}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShopItem } from '../config/shopItems.config';
 import InsufficientFunds from './InsufficientFunds.component';
+import { getAssetUrl, isImageAsset } from '../logic/assetResolver.logic';
 
 interface ShopItemCardProps {
   item: ShopItem;
@@ -9,7 +10,8 @@ interface ShopItemCardProps {
 }
 
 export default function ShopItemCard({ item, canAfford, onPurchase }: ShopItemCardProps) {
-  const isImage = item.image?.startsWith('/') || item.image?.startsWith('http');
+  const isImage = isImageAsset(item.image);
+  const imageUrl = getAssetUrl(item.image);
 
   return (
     <div className="bg-white/60 border border-stone-grey/20 p-4 rounded-3xl flex items-center gap-6 hover:border-soft-lilac/30 transition-all group shadow-sm hover:shadow-md">
@@ -19,7 +21,7 @@ export default function ShopItemCard({ item, canAfford, onPurchase }: ShopItemCa
          {item.image ? (
            isImage ? (
              <img 
-               src={item.image} 
+               src={imageUrl} 
                alt={item.name} 
                className="w-2/3 h-2/3 object-contain drop-shadow-sm group-hover:scale-110 transition-transform" 
                style={{ imageRendering: 'pixelated' }}

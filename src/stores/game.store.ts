@@ -49,6 +49,7 @@ interface GameStore extends GameState {
   addOwnedPet: (pet: any) => void;
   addShelterAnimal: (pet: any) => void;
   updateShelterAnimal: (id: string, updates: Partial<Animal>) => void;
+  toggleLockShelterAnimal: (id: string) => void;
   nameShelterAnimal: (id: string, name: string) => void;
   setShelterName: (name: string) => void;
   setPetName: (name: string) => void;
@@ -260,6 +261,9 @@ export const useGameStore = create<GameStore>()(
       addShelterAnimal: (pet) => set((state) => ({ shelterAnimals: [...state.shelterAnimals, pet] })),
       updateShelterAnimal: (id, updates) => set((state) => ({
          shelterAnimals: state.shelterAnimals.map(a => a.id === id ? { ...a, ...updates } : a)
+      })),
+      toggleLockShelterAnimal: (id) => set((state) => ({
+         shelterAnimals: state.shelterAnimals.map(a => a.id === id ? { ...a, isLocked: !a.isLocked } : a)
       })),
       nameShelterAnimal: (id, name) => set((state) => {
         const animal = state.shelterAnimals.find(a => a.id === id);

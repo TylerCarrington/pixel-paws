@@ -22,8 +22,8 @@ export function rollForAdoptions(
   };
 
   return shelterAnimals.map(animal => {
-    // Vet animals cannot be adopted
-    if (animal.vetDaysRemaining && animal.vetDaysRemaining > 0) {
+    // Vet animals and locked animals cannot be adopted
+    if (animal.isLocked || (animal.vetDaysRemaining && animal.vetDaysRemaining > 0)) {
       return {
         animalId: animal.id,
         isAdopted: false,

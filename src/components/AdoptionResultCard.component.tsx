@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import AnimalSprite from './AnimalSprite.component';
 import { STARTER_DOGS } from '../config/starterDogs.config';
 import { STARTER_CATS } from '../config/starterCats.config';
+import { Lock } from 'lucide-react';
 
 interface AdoptionResultCardProps {
   animal: Animal;
@@ -50,18 +51,37 @@ export default function AdoptionResultCard({ animal, result, isVisible }: Adopti
       <div className="relative z-10 w-full flex flex-col items-center justify-center">
         {!result.isAdopted ? (
           <>
-            <div className="mb-6 opacity-70">
+            <div className="mb-6 opacity-70 relative">
               <AnimalSprite species={animal.species} spriteKey={spriteKey} size={64} animation="idle" />
+              {animal.isLocked && (
+                <div className="absolute -top-2 -right-2 bg-amber-glow text-warm-brown p-1.5 rounded-full shadow-md border border-white/60">
+                  <Lock size={14} />
+                </div>
+              )}
             </div>
             <h3 className="text-xl font-game text-dialogue-text uppercase tracking-tight mb-2">
               {animal.name}
             </h3>
-            <p className="text-sm text-stone-grey italic leading-relaxed mt-4">
-              "Not today, but their forever home is out there."
-            </p>
-            <div className="mt-4 px-3 py-1 bg-stone-grey/5 rounded-full border border-stone-grey/10">
-              <span className="text-[10px] font-pixel text-stone-grey uppercase tracking-widest">{Math.round(result.chance * 100)}% Match Chance</span>
-            </div>
+            {animal.isLocked ? (
+              <>
+                <p className="text-sm text-warm-brown italic leading-relaxed mt-2 font-pixel">
+                  "Shelter Hold Active — Safe with you!"
+                </p>
+                <div className="mt-4 px-3 py-1 bg-amber-glow/20 rounded-full border border-amber-glow/40 flex items-center gap-1.5">
+                  <Lock size={12} className="text-warm-brown" />
+                  <span className="text-[10px] font-pixel text-warm-brown font-bold uppercase tracking-widest">Locked From Adoption</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="text-sm text-stone-grey italic leading-relaxed mt-4">
+                  "Not today, but their forever home is out there."
+                </p>
+                <div className="mt-4 px-3 py-1 bg-stone-grey/5 rounded-full border border-stone-grey/10">
+                  <span className="text-[10px] font-pixel text-stone-grey uppercase tracking-widest">{Math.round(result.chance * 100)}% Match Chance</span>
+                </div>
+              </>
+            )}
           </>
         ) : (
           <>

@@ -4,6 +4,7 @@ import { useGameStore } from '../stores/game.store';
 import { audioManager } from '../audio/audio.manager';
 import { SFX } from '../config/audio.config';
 import AnimalSprite from './AnimalSprite.component';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 interface ReactWashInteractionProps {
   isRescue?: boolean;
@@ -137,7 +138,7 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
           <motion.div 
             key="muddy"
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('./src/assets/images/items/muddy-shape.png')` }}
+            style={{ backgroundImage: `url('${getAssetUrl('./src/assets/images/items/muddy-shape.png')}')` }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
           >
@@ -153,7 +154,7 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
           <motion.div
             key="clean"
             className="absolute inset-0 bg-cover bg-center flex items-center justify-center"
-            style={{ backgroundImage: `url('./src/assets/images/backgrounds/riverside-bridge-close.png')` }}
+            style={{ backgroundImage: `url('${getAssetUrl('./src/assets/images/backgrounds/riverside-bridge-close.png')}')` }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}

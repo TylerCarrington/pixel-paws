@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useGameStore } from '../stores/game.store';
 import { Animal } from '../types/animal.types';
 import { DECORATIONS } from '../constants/decorations.constants';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 import { X, Package, Trash2, CheckCircle } from 'lucide-react';
 import AnimalSprite from './AnimalSprite.component';
 import { STARTER_DOGS } from '../config/starterDogs.config';
@@ -121,7 +122,7 @@ export default function DecorationMode({ pet, onClose }: DecorationModeProps) {
               >
                 <div className="relative">
                   <img 
-                    src={item.image} 
+                    src={getAssetUrl(item.image)} 
                     alt={item.name} 
                     className="drop-shadow-lg"
                     style={{ width: item.width * 2, height: item.height * 2 }} 
@@ -171,7 +172,7 @@ export default function DecorationMode({ pet, onClose }: DecorationModeProps) {
                     }
                   `}
                 >
-                  <img src={item.image} alt={item.name} className="w-12 h-12 object-contain drop-shadow-md" />
+                  <img src={getAssetUrl(item.image)} alt={item.name} className="w-12 h-12 object-contain drop-shadow-md" />
                   <div className="text-center">
                     <p className="text-white font-pixel text-[8px] uppercase whitespace-nowrap">{item.name}</p>
                     <div className="mt-1 bg-white/20 rounded-full px-2 py-0.5 inline-block">

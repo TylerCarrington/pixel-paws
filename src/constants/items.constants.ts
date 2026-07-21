@@ -10,7 +10,7 @@ export const TRACKED_ITEMS: Record<string, TrackerItem> = {
     rarity: 'Common',
     image: './src/assets/images/items/apple-slice.png',
     cost: 15,
-    compatibleSpecies: [Species.SMALL_ANIMAL, Species.BIRD, Species.EXOTIC_SMALL],
+    compatibleSpecies: [Species.DOG, Species.CAT, Species.SMALL_ANIMAL, Species.BIRD, Species.REPTILE, Species.EXOTIC_SMALL, Species.EXOTIC_LARGE],
     hungerValue: 20,
     xpBonusValue: 5
   },
@@ -34,7 +34,7 @@ export const TRACKED_ITEMS: Record<string, TrackerItem> = {
     rarity: 'Common',
     image: './src/assets/images/items/carrot.png',
     cost: 12,
-    compatibleSpecies: [Species.SMALL_ANIMAL, Species.EXOTIC_SMALL],
+    compatibleSpecies: [Species.DOG, Species.CAT, Species.SMALL_ANIMAL, Species.REPTILE, Species.EXOTIC_SMALL, Species.EXOTIC_LARGE],
     hungerValue: 22,
     xpBonusValue: 5
   },
@@ -46,7 +46,7 @@ export const TRACKED_ITEMS: Record<string, TrackerItem> = {
     rarity: 'Common',
     image: './src/assets/images/items/cat-treat.png',
     cost: 18,
-    compatibleSpecies: [Species.CAT],
+    compatibleSpecies: [Species.DOG, Species.CAT],
     hungerValue: 30,
     xpBonusValue: 10
   },
@@ -70,7 +70,7 @@ export const TRACKED_ITEMS: Record<string, TrackerItem> = {
     rarity: 'Common',
     image: './src/assets/images/items/lettuce-leaf.png',
     cost: 6,
-    compatibleSpecies: [Species.SMALL_ANIMAL, Species.REPTILE, Species.EXOTIC_SMALL, Species.EXOTIC_LARGE],
+    compatibleSpecies: [Species.DOG, Species.CAT, Species.SMALL_ANIMAL, Species.BIRD, Species.REPTILE, Species.EXOTIC_SMALL, Species.EXOTIC_LARGE],
     hungerValue: 12,
     xpBonusValue: 2
   },

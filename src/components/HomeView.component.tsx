@@ -9,6 +9,7 @@ import OwnedPetDetailModal from './OwnedPetDetailModal.component.tsx';
 import { getBreedDefinition } from '../logic/animalAssets.logic';
 import ActivitySelection from './ActivitySelection.component';
 import { DECORATIONS } from '../constants/decorations.constants';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 import { Sparkles, Moon, Play, ShoppingBag, Home, LogOut, Users, X } from 'lucide-react';
 import DecorationMode from './DecorationMode.component';
 import { Species } from '../types/animal.types';
@@ -234,7 +235,7 @@ export default function HomeView() {
                   transform: 'translate(-50%, -50%)'
                 }}
               >
-                <img src={item.image} alt={item.name} className="drop-shadow-lg" style={{ width: item.width * 2, height: item.height * 2 }} />
+                <img src={getAssetUrl(item.image)} alt={item.name} className="drop-shadow-lg" style={{ width: item.width * 2, height: item.height * 2 }} />
               </div>
             );
           })}

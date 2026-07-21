@@ -5,6 +5,7 @@ import DialoguePanel from '../components/DialoguePanel';
 import BlossomLayer from '../components/BlossomLayer';
 import PetNameInput from '../components/PetNameInput.component';
 import { createStarterPet } from '../logic/ownedPet.logic';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 import '../styles/opening.css';
 
 interface DayOneWalkProps {
@@ -274,7 +275,7 @@ export default function DayOneWalk({ onFinish, startBeatId }: DayOneWalkProps) {
       <div className={`opening-background-container ${lightsDownActive ? 'brightness-50' : ''}`} style={{ transition: `opacity ${getHalfDurationStr()} ease-in-out, filter 1.6s ease-in-out`, opacity: bgFadeOpacity }}>
         <div 
           className="opening-background" 
-          style={{ backgroundImage: `url('${bgImage}')` }}
+          style={{ backgroundImage: `url('${getAssetUrl(bgImage)}')` }}
         />
         <div className={`mist-overlay ${showMist ? 'visible' : ''}`} />
       </div>
@@ -295,7 +296,7 @@ export default function DayOneWalk({ onFinish, startBeatId }: DayOneWalkProps) {
         <div className={`absolute inset-0 z-40 flex flex-col items-center justify-center pointer-events-none transition-filter duration-[1600ms] ${lightsDownActive ? 'brightness-50' : ''}`}>
           <div className="relative pt-[5vh]">
             <img 
-              src={`./src/assets/images/animals/dogs/${assignedBreed?.spriteKey || 'husky'}.png`} 
+              src={getAssetUrl(`./src/assets/images/animals/dogs/${assignedBreed?.spriteKey || 'husky'}.png`)} 
               alt={assignedBreed?.name || "Husky"} 
               className={`pixelated w-48 h-48 drop-shadow-[0_20px_20px_rgba(0,0,0,0.3)] animate-soft-pulse ${isShaking ? 'shake' : ''}`}
             />
@@ -318,7 +319,7 @@ export default function DayOneWalk({ onFinish, startBeatId }: DayOneWalkProps) {
             transition: 'opacity 0.5s ease-in-out, filter 1.6s ease-in-out'
           }}
         >
-          <img src="./src/assets/images/items/pet-bed.png" alt="Pet bed" className="w-[200px] h-auto pixelated drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" />
+          <img src={getAssetUrl("./src/assets/images/items/pet-bed.png")} alt="Pet bed" className="w-[200px] h-auto pixelated drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" />
         </div>
       )}
 
@@ -338,7 +339,7 @@ export default function DayOneWalk({ onFinish, startBeatId }: DayOneWalkProps) {
         >
           <div className="relative pt-[5vh]">
             <img 
-              src={`./src/assets/images/animals/dogs/${assignedBreed?.spriteKey || 'husky'}.png`} 
+              src={getAssetUrl(`./src/assets/images/animals/dogs/${assignedBreed?.spriteKey || 'husky'}.png`)} 
               alt={`${assignedBreed?.name || 'Husky'} in bed`} 
               className="pixelated w-48 h-48 drop-shadow-[0_20px_20px_rgba(0,0,0,0.3)] animate-soft-pulse"
             />
@@ -366,7 +367,7 @@ export default function DayOneWalk({ onFinish, startBeatId }: DayOneWalkProps) {
              onTouchStart={handleBondWithPet}
           >
              <img 
-               src={`./src/assets/images/animals/dogs/${getSpriteKey(currentBeat)}.png`} 
+               src={getAssetUrl(`./src/assets/images/animals/dogs/${getSpriteKey(currentBeat)}.png`)} 
                alt={assignedBreed?.name || "Husky"} 
                className={`pixelated w-48 h-48 drop-shadow-[0_20px_20px_rgba(0,0,0,0.3)] pointer-events-none animate-soft-pulse ${isShaking ? 'shake' : ''}`}
              />
@@ -449,7 +450,7 @@ export default function DayOneWalk({ onFinish, startBeatId }: DayOneWalkProps) {
             >
                <div className="pt-[5vh]">
                  <img 
-                   src={`./src/assets/images/animals/dogs/${getSpriteKey(currentBeat)}.png`} 
+                   src={getAssetUrl(`./src/assets/images/animals/dogs/${getSpriteKey(currentBeat)}.png`)} 
                    alt={assignedBreed?.name || "Husky"} 
                    className={`pixelated w-48 h-48 drop-shadow-[0_20px_20px_rgba(0,0,0,0.3)] pointer-events-none animate-soft-pulse`}
                  />

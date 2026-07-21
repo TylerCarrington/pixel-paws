@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useGameStore } from '../stores/game.store';
 import { getAnimalSpriteSrc } from '../logic/animalAssets.logic';
 import { Species } from '../types/animal.types';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 export default function TubeStuck({ onFinish }: { onFinish?: () => void }) {
   const setPhase6State = useGameStore(state => state.setPhase6State);
@@ -58,7 +59,7 @@ export default function TubeStuck({ onFinish }: { onFinish?: () => void }) {
     <div className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden font-pixel select-none z-50 bg-stone-900">
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('./src/assets/images/backgrounds/tube-stuck.png')" }}
+        style={{ backgroundImage: `url('${getAssetUrl('./src/assets/images/backgrounds/tube-stuck.png')}')` }}
       />
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       

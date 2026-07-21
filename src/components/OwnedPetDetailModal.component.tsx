@@ -9,6 +9,7 @@ import { X, Heart, Utensils, Scissors, Play, Edit2, Check } from 'lucide-react';
 import { audioManager } from '../audio/audio.manager';
 import { SFX } from '../config/audio.config';
 import { TRACKED_ITEMS } from '../constants/items.constants';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 interface OwnedPetDetailModalProps {
   pet: Animal;
@@ -506,7 +507,7 @@ export default function OwnedPetDetailModal({ pet: initialPet, onClose, onPlay }
                             {treat.id === 'basic_kibble' ? (
                               <span className="text-xl">🥣</span>
                             ) : (
-                              <img src={treat.image} alt={treat.name} className="w-8 h-8 object-contain" />
+                              <img src={getAssetUrl(treat.image)} alt={treat.name} className="w-8 h-8 object-contain" />
                             )}
                             
                             {treat.count !== Infinity && treat.count > 0 && (

@@ -3,6 +3,7 @@ import { useGameStore } from '../stores/game.store';
 import { motion, AnimatePresence } from 'framer-motion';
 import DialoguePanel from './DialoguePanel';
 import AnimalSprite from './AnimalSprite.component';
+import { getAssetUrl } from '../logic/assetResolver.logic';
 
 const BUSHES = [
   { id: 'bushLeft', bottom: '6%', left: '4%', width: '28%', zIndex: 60 },
@@ -74,7 +75,7 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
       {/* Park Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('./src/assets/images/backgrounds/park-fountain.png')" }}
+        style={{ backgroundImage: `url('${getAssetUrl('./src/assets/images/backgrounds/park-fountain.png')}')` }}
       />
 
       {/* Layered Bush Sprites */}
@@ -93,7 +94,7 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
           }}
         >
           <img 
-            src="./src/assets/images/items/bush.png" 
+            src={getAssetUrl("./src/assets/images/items/bush.png")} 
             alt="Bush" 
             className="w-full h-auto pixelated"
             style={{ transformOrigin: 'bottom center' }}
