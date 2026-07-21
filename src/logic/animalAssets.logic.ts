@@ -37,7 +37,7 @@ export function getAnimalSpriteSrc(species: Species, spriteKey: string): string 
   const path = `../assets/images/animals/${folder}/${spriteKey}.png`;
   // Iterate through keys to find one that ends with our path
   const match = Object.keys(images).find(key => key.endsWith(path.replace('..', '')));
-  return match ? images[match] : `/src/assets/images/animals/${folder}/${spriteKey}.png`;
+  return match ? images[match] : `./src/assets/images/animals/${folder}/${spriteKey}.png`;
 }
 
 /**

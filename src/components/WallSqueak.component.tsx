@@ -151,7 +151,7 @@ export default function WallSqueak({ onFinish }: { onFinish?: () => void }) {
       `}</style>
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('/src/assets/images/backgrounds/wall-squeak.png')" }}
+        style={{ backgroundImage: "url('./src/assets/images/backgrounds/wall-squeak.png')" }}
       />
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       {/* Title / Prompt */}

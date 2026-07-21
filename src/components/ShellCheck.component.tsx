@@ -112,7 +112,7 @@ export default function ShellCheck({ onFinish }: { onFinish?: () => void }) {
     >
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-80" 
-        style={{ backgroundImage: "url('/src/assets/images/backgrounds/riverside-path.jpeg')" }}
+        style={{ backgroundImage: "url('./src/assets/images/backgrounds/riverside-path.jpeg')" }}
       />
       
       <div className="absolute inset-0 flex flex-col items-center justify-center p-8 z-10 transition-transform duration-1000" style={{ transform: phase === 'waiting' ? `scale(${1 + (trustProgress / 100) * 0.5})` : 'scale(1.5)' }}>

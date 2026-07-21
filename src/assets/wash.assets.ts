@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
 
 export const createWashAssets = (scene: Phaser.Scene) => {
-    scene.load.image('husky', '/src/assets/images/animals/dogs/husky.png');
-    scene.load.image('muddy_shape', '/src/assets/images/items/muddy-shape.png');
+    scene.load.image('husky', './src/assets/images/animals/dogs/husky.png');
+    scene.load.image('muddy_shape', './src/assets/images/items/muddy-shape.png');
 
     if (!scene.textures.exists('eraser_brush')) {
         const canvas = document.createElement('canvas');

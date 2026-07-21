@@ -146,7 +146,7 @@ export default function TugWarActivity({ pet, onComplete }: TugWarProps) {
                 <div className="flex flex-col items-center gap-2">
                     <img 
                         src={spriteSrc}
-                        onError={(e) => { e.currentTarget.src = pet.species === Species.CAT ? '/src/assets/images/animals/cats/calico-cat.png' : '/src/assets/images/animals/dogs/husky.png'; }}
+                        onError={(e) => { e.currentTarget.src = pet.species === Species.CAT ? './src/assets/images/animals/cats/calico-cat.png' : './src/assets/images/animals/dogs/husky.png'; }}
                         className={`w-24 h-24 object-contain pixelated transition-transform ${isPlaying ? 'scale-x-[-1] animate-pulse' : 'scale-x-[-1]'}`}
                         alt="Pet"
                     />

@@ -145,7 +145,7 @@ export default function TricksShowcaseActivity({ pet, onComplete }: TricksShowca
                     >
                         <img 
                             src={spriteSrc}
-                            onError={(e) => { e.currentTarget.src = pet.species === Species.CAT ? '/src/assets/images/animals/cats/calico-cat.png' : '/src/assets/images/animals/dogs/husky.png'; }}
+                            onError={(e) => { e.currentTarget.src = pet.species === Species.CAT ? './src/assets/images/animals/cats/calico-cat.png' : './src/assets/images/animals/dogs/husky.png'; }}
                             className="w-32 h-32 object-contain pixelated"
                             alt="Pet"
                         />

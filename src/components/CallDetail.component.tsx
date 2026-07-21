@@ -9,23 +9,23 @@ interface CallDetailProps {
 }
 
 const LOCATION_BACKGROUNDS: Record<string, string> = {
-  [DiscoveryMethod.SCARED_APPROACH]: '/src/assets/images/backgrounds/back-alley.png',
-  [DiscoveryMethod.FOOD_TEMPT]: '/src/assets/images/backgrounds/back-alley.png',
-  [DiscoveryMethod.DARK_SEARCH]: '/src/assets/images/backgrounds/construction‑shed.png',
-  [DiscoveryMethod.WOODPILE_TRAPPED]: '/src/assets/images/backgrounds/woodpile.png',
-  [DiscoveryMethod.RUNAWAY_CHASE]: '/src/assets/images/backgrounds/downtown-village.png',
-  [DiscoveryMethod.PORCH_HIDING]: '/src/assets/images/backgrounds/porch.png',
-  [DiscoveryMethod.RIVERSIDE_WARMUP]: '/src/assets/images/backgrounds/riverside-cold.png',
-  [DiscoveryMethod.PARK_INJURED]: '/src/assets/images/backgrounds/park-with-benches.png',
-  [DiscoveryMethod.HIDING]: '/src/assets/images/backgrounds/park-with-benches.png',
-  [DiscoveryMethod.FENCE_TANGLED]: '/src/assets/images/backgrounds/playground.png',
-  [DiscoveryMethod.DIRTY]: '/src/assets/images/backgrounds/riverside-path.jpeg',
-  [DiscoveryMethod.BOX]: '/src/assets/images/backgrounds/marketplace.png',
-  [DiscoveryMethod.PARK_FIND]: '/src/assets/images/backgrounds/park-with-benches.png',
-  [DiscoveryMethod.BACKYARD_STRAY]: '/src/assets/images/backgrounds/porch.png',
-  [DiscoveryMethod.POLICE_DROP]: '/src/assets/images/backgrounds/marketplace.png',
-  [DiscoveryMethod.SOUND]: '/src/assets/images/backgrounds/construction‑shed.png',
-  [DiscoveryMethod.TANGLED]: '/src/assets/images/backgrounds/park-fountain.png',
+  [DiscoveryMethod.SCARED_APPROACH]: './src/assets/images/backgrounds/back-alley.png',
+  [DiscoveryMethod.FOOD_TEMPT]: './src/assets/images/backgrounds/back-alley.png',
+  [DiscoveryMethod.DARK_SEARCH]: './src/assets/images/backgrounds/construction‑shed.png',
+  [DiscoveryMethod.WOODPILE_TRAPPED]: './src/assets/images/backgrounds/woodpile.png',
+  [DiscoveryMethod.RUNAWAY_CHASE]: './src/assets/images/backgrounds/downtown-village.png',
+  [DiscoveryMethod.PORCH_HIDING]: './src/assets/images/backgrounds/porch.png',
+  [DiscoveryMethod.RIVERSIDE_WARMUP]: './src/assets/images/backgrounds/riverside-cold.png',
+  [DiscoveryMethod.PARK_INJURED]: './src/assets/images/backgrounds/park-with-benches.png',
+  [DiscoveryMethod.HIDING]: './src/assets/images/backgrounds/park-with-benches.png',
+  [DiscoveryMethod.FENCE_TANGLED]: './src/assets/images/backgrounds/playground.png',
+  [DiscoveryMethod.DIRTY]: './src/assets/images/backgrounds/riverside-path.jpeg',
+  [DiscoveryMethod.BOX]: './src/assets/images/backgrounds/marketplace.png',
+  [DiscoveryMethod.PARK_FIND]: './src/assets/images/backgrounds/park-with-benches.png',
+  [DiscoveryMethod.BACKYARD_STRAY]: './src/assets/images/backgrounds/porch.png',
+  [DiscoveryMethod.POLICE_DROP]: './src/assets/images/backgrounds/marketplace.png',
+  [DiscoveryMethod.SOUND]: './src/assets/images/backgrounds/construction‑shed.png',
+  [DiscoveryMethod.TANGLED]: './src/assets/images/backgrounds/park-fountain.png',
 };
 
 export default function CallDetail({ call, onRespond }: CallDetailProps) {
@@ -54,7 +54,7 @@ export default function CallDetail({ call, onRespond }: CallDetailProps) {
     reason = `Dog capacity is full (${dogsCount}/${shelterCapacity}).`;
   }
 
-  const bgImage = LOCATION_BACKGROUNDS[call.discoveryMethod] || '/src/assets/images/backgrounds/park-with-benches.png';
+  const bgImage = LOCATION_BACKGROUNDS[call.discoveryMethod] || './src/assets/images/backgrounds/park-with-benches.png';
 
   return (
     <div className="bg-warm-cream border-2 border-soft-rose rounded-lg p-6 flex flex-col h-full shadow-lg font-pixel overflow-hidden">

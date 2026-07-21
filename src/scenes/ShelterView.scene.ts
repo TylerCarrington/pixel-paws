@@ -17,7 +17,7 @@ export class ShelterViewScene extends Phaser.Scene {
       const def = STARTER_DOGS.find(d => d.id === animal.breed) || STARTER_CATS.find(c => c.id === animal.breed);
       if (def && def.spriteKey) {
         const folder = animal.species === Species.CAT ? 'cats' : 'dogs';
-        const url = `/src/assets/images/animals/${folder}/${def.spriteKey}.png`;
+        const url = `./src/assets/images/animals/${folder}/${def.spriteKey}.png`;
         if (!this.textures.exists(def.spriteKey)) {
           this.load.image(def.spriteKey, url);
         }

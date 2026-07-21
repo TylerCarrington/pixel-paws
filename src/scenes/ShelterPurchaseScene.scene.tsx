@@ -27,7 +27,7 @@ export default function ShelterPurchaseScene({ onFinish }: ShelterPurchaseSceneP
   const shelterExteriorId = useGameStore(state => state.shelterExterior);
   
   const shelterData = SHELTER_LISTINGS.find(s => s.id === shelterExteriorId);
-  const bgImage = shelterData?.image || '/src/assets/images/shelters/shelter-exterior-1.png';
+  const bgImage = shelterData?.image || './src/assets/images/shelters/shelter-exterior-1.png';
 
   const currentBeat = PURCHASE_SCRIPT[currentIndex];
 
@@ -78,7 +78,7 @@ export default function ShelterPurchaseScene({ onFinish }: ShelterPurchaseSceneP
       <div className="dialogue-wrapper">
         <div className="marigold-portrait-container" style={{ opacity: currentBeat?.speaker ? 1 : 0 }}>
           <img 
-            src="/src/assets/images/items/marigold.png" 
+            src="./src/assets/images/items/marigold.png" 
             alt="Marigold"
             className="marigold-portrait"
           />

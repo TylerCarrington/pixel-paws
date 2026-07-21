@@ -16,7 +16,7 @@ export default function TitleScreen({ onPlay }: TitleScreenProps) {
       {/* Background Splash Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-screen"
-        style={{ backgroundImage: `url('/src/assets/images/ui/pixel-paws-splash.jpeg')` }}
+        style={{ backgroundImage: `url('./src/assets/images/ui/pixel-paws-splash.jpeg')` }}
       />
       
       {/* Dark Overlay for readability */}

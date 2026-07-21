@@ -182,8 +182,8 @@ export default function ObstacleCourseActivity({ pet, onComplete }: ObstacleCour
                     className={`absolute bottom-10 -translate-x-1/2 z-20 transition-all ${hasCrashed ? 'opacity-50 blur-sm' : ''}`}
                 >
                     <img 
-                        src={`/src/assets/images/animals/dogs/${pet.breed.toLowerCase()}.png`}
-                        onError={(e) => { e.currentTarget.src = '/src/assets/images/animals/dogs/husky.png'; }}
+                        src={`./src/assets/images/animals/dogs/${pet.breed.toLowerCase()}.png`}
+                        onError={(e) => { e.currentTarget.src = './src/assets/images/animals/dogs/husky.png'; }}
                         className="w-20 h-20 object-contain pixelated"
                         alt="Pet"
                     />

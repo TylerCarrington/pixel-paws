@@ -18,20 +18,20 @@ interface LogItem {
 
 const INITIAL_LOGS: LogItem[] = [
   // Layer 4 (Top)
-  { id: 1, imageSrc: '/src/assets/images/items/log-sprites-1.png', width: '140px', height: '60px', top: '50%', left: '45%', rotate: -5, zIndex: 40, weightMs: 1200, removed: false },
+  { id: 1, imageSrc: './src/assets/images/items/log-sprites-1.png', width: '140px', height: '60px', top: '50%', left: '45%', rotate: -5, zIndex: 40, weightMs: 1200, removed: false },
   
   // Layer 3
-  { id: 2, imageSrc: '/src/assets/images/items/log-sprites-2.png', width: '120px', height: '80px', top: '45%', left: '55%', rotate: 15, zIndex: 30, weightMs: 1500, removed: false },
-  { id: 3, imageSrc: '/src/assets/images/items/log-sprites-3.png', width: '140px', height: '50px', top: '60%', left: '60%', rotate: -25, zIndex: 31, weightMs: 800, removed: false },
+  { id: 2, imageSrc: './src/assets/images/items/log-sprites-2.png', width: '120px', height: '80px', top: '45%', left: '55%', rotate: 15, zIndex: 30, weightMs: 1500, removed: false },
+  { id: 3, imageSrc: './src/assets/images/items/log-sprites-3.png', width: '140px', height: '50px', top: '60%', left: '60%', rotate: -25, zIndex: 31, weightMs: 800, removed: false },
   
   // Layer 2
-  { id: 4, imageSrc: '/src/assets/images/items/log-sprites-4.png', width: '150px', height: '50px', top: '55%', left: '40%', rotate: -10, zIndex: 20, weightMs: 1100, removed: false },
-  { id: 5, imageSrc: '/src/assets/images/items/log-sprites-5.png', width: '120px', height: '40px', top: '40%', left: '50%', rotate: 8, zIndex: 21, weightMs: 900, removed: false },
-  { id: 8, imageSrc: '/src/assets/images/items/log-sprites-8.png', width: '100px', height: '80px', top: '48%', left: '48%', rotate: -15, zIndex: 22, weightMs: 1000, removed: false },
+  { id: 4, imageSrc: './src/assets/images/items/log-sprites-4.png', width: '150px', height: '50px', top: '55%', left: '40%', rotate: -10, zIndex: 20, weightMs: 1100, removed: false },
+  { id: 5, imageSrc: './src/assets/images/items/log-sprites-5.png', width: '120px', height: '40px', top: '40%', left: '50%', rotate: 8, zIndex: 21, weightMs: 900, removed: false },
+  { id: 8, imageSrc: './src/assets/images/items/log-sprites-8.png', width: '100px', height: '80px', top: '48%', left: '48%', rotate: -15, zIndex: 22, weightMs: 1000, removed: false },
   
   // Layer 1 (Bottom)
-  { id: 6, imageSrc: '/src/assets/images/items/log-sprites-6.png', width: '130px', height: '70px', top: '55%', left: '55%', rotate: -3, zIndex: 10, weightMs: 1400, removed: false },
-  { id: 7, imageSrc: '/src/assets/images/items/log-sprites-7.png', width: '110px', height: '60px', top: '48%', left: '35%', rotate: 20, zIndex: 11, weightMs: 1000, removed: false },
+  { id: 6, imageSrc: './src/assets/images/items/log-sprites-6.png', width: '130px', height: '70px', top: '55%', left: '55%', rotate: -3, zIndex: 10, weightMs: 1400, removed: false },
+  { id: 7, imageSrc: './src/assets/images/items/log-sprites-7.png', width: '110px', height: '60px', top: '48%', left: '35%', rotate: 20, zIndex: 11, weightMs: 1000, removed: false },
 ];
 
 export default function WoodpileRescue({ onFinish }: { onFinish?: () => void }) {
@@ -132,7 +132,7 @@ export default function WoodpileRescue({ onFinish }: { onFinish?: () => void }) 
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/src/assets/images/backgrounds/woodpile.png" 
+          src="./src/assets/images/backgrounds/woodpile.png" 
           className="w-full h-full object-cover opacity-80"
           alt="Woodpile Backyard"
           onError={(e) => {

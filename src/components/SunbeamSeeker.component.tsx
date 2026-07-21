@@ -110,7 +110,7 @@ export default function SunbeamSeeker({ onFinish }: { onFinish?: () => void }) {
       {/* Greenhouse Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('/src/assets/images/backgrounds/greenhouse.png')" }}
+        style={{ backgroundImage: "url('./src/assets/images/backgrounds/greenhouse.png')" }}
       />
       
       {/* Timer Bar */}

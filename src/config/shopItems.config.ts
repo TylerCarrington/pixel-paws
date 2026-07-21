@@ -29,7 +29,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Activities',
     effect: { type: 'ADD_TO_INVENTORY', value: 'fruitBowl' },
     oneTime: true,
-    image: '/src/assets/images/decorations/pet-bowl.png'
+    image: './src/assets/images/decorations/pet-bowl.png'
   },
   {
     id: 'chefs_apron',
@@ -99,7 +99,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Essentials',
     effect: { type: 'PASSIVE_DESIRABILITY_BOOST', value: 5 },
     oneTime: true,
-    image: '/src/assets/images/decorations/pet-bowl.png'
+    image: './src/assets/images/decorations/pet-bowl.png'
   },
   {
     id: 'grooming_brush',
@@ -169,7 +169,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'COZY_RUG' },
     oneTime: false,
-    image: '/src/assets/images/decorations/rug.png'
+    image: './src/assets/images/decorations/rug.png'
   },
   {
     id: 'decor_food_bowl',
@@ -179,7 +179,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'FOOD_BOWL' },
     oneTime: false,
-    image: '/src/assets/images/decorations/pet-bowl.png'
+    image: './src/assets/images/decorations/pet-bowl.png'
   },
   {
     id: 'decor_toy_basket',
@@ -189,7 +189,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'TOY_BASKET' },
     oneTime: false,
-    image: '/src/assets/images/decorations/toy-basket.png'
+    image: './src/assets/images/decorations/toy-basket.png'
   },
   {
     id: 'decor_wall_art',
@@ -199,7 +199,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'WALL_ART' },
     oneTime: false,
-    image: '/src/assets/images/decorations/bone-painting.png'
+    image: './src/assets/images/decorations/bone-painting.png'
   },
   {
     id: 'decor_hanging_plant',
@@ -209,7 +209,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'HANGING_PLANT' },
     oneTime: false,
-    image: '/src/assets/images/decorations/hanging-plant.png'
+    image: './src/assets/images/decorations/hanging-plant.png'
   },
   {
     id: 'decor_cushion',
@@ -219,7 +219,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'CUSHION' },
     oneTime: false,
-    image: '/src/assets/images/decorations/pet-cushion.png'
+    image: './src/assets/images/decorations/pet-cushion.png'
   },
   {
     id: 'decor_lamp',
@@ -229,7 +229,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'LAMP' },
     oneTime: false,
-    image: '/src/assets/images/decorations/pet-lamp.png'
+    image: './src/assets/images/decorations/pet-lamp.png'
   },
   {
     id: 'bedroom_pet_bed',
@@ -259,7 +259,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Supplies',
     effect: { type: 'ADD_TO_INVENTORY', value: 'apple_slice' },
     oneTime: false,
-    image: '/src/assets/images/items/apple-slice.png'
+    image: './src/assets/images/items/apple-slice.png'
   },
   {
     id: 'shop_bird_seed',
@@ -269,7 +269,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Supplies',
     effect: { type: 'ADD_TO_INVENTORY', value: 'bird_seed' },
     oneTime: false,
-    image: '/src/assets/images/items/bird-seed.png'
+    image: './src/assets/images/items/bird-seed.png'
   },
   {
     id: 'shop_carrot',
@@ -279,7 +279,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Supplies',
     effect: { type: 'ADD_TO_INVENTORY', value: 'carrot' },
     oneTime: false,
-    image: '/src/assets/images/items/carrot.png'
+    image: './src/assets/images/items/carrot.png'
   },
   {
     id: 'shop_cat_treat',
@@ -289,7 +289,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Supplies',
     effect: { type: 'ADD_TO_INVENTORY', value: 'cat_treat' },
     oneTime: false,
-    image: '/src/assets/images/items/cat-treat.png'
+    image: './src/assets/images/items/cat-treat.png'
   },
   {
     id: 'shop_hay_strands',
@@ -299,7 +299,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Supplies',
     effect: { type: 'ADD_TO_INVENTORY', value: 'hay_strands' },
     oneTime: false,
-    image: '/src/assets/images/items/hay-strands.png'
+    image: './src/assets/images/items/hay-strands.png'
   },
   {
     id: 'shop_lettuce_leaf',
@@ -309,7 +309,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Supplies',
     effect: { type: 'ADD_TO_INVENTORY', value: 'lettuce_leaf' },
     oneTime: false,
-    image: '/src/assets/images/items/lettuce-leaf.png'
+    image: './src/assets/images/items/lettuce-leaf.png'
   },
   {
     id: 'shop_cream_food_bowl',
@@ -319,7 +319,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'cream_food_bowl' },
     oneTime: false,
-    image: '/src/assets/images/items/cream-food-bowl.png'
+    image: './src/assets/images/items/cream-food-bowl.png'
   },
   {
     id: 'shop_pet_food_bowl_pink',
@@ -329,7 +329,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'pet_food_bowl_pink' },
     oneTime: false,
-    image: '/src/assets/images/items/pet-food-bowl-pink.png'
+    image: './src/assets/images/items/pet-food-bowl-pink.png'
   },
   {
     id: 'shop_metal_pet_bowl',
@@ -339,7 +339,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'metal_pet_bowl' },
     oneTime: false,
-    image: '/src/assets/images/items/metal-pet-bowl.png'
+    image: './src/assets/images/items/metal-pet-bowl.png'
   },
   {
     id: 'shop_water_bowl',
@@ -349,7 +349,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'water_bowl' },
     oneTime: false,
-    image: '/src/assets/images/items/water-bowl.png'
+    image: './src/assets/images/items/water-bowl.png'
   },
   {
     id: 'shop_raised_feeder_stand',
@@ -359,7 +359,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'raised_feeder_stand' },
     oneTime: false,
-    image: '/src/assets/images/items/raised-feeder-stand.png'
+    image: './src/assets/images/items/raised-feeder-stand.png'
   },
   {
     id: 'shop_catnip_mouse_toy',
@@ -369,7 +369,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'catnip_mouse_toy' },
     oneTime: false,
-    image: '/src/assets/images/items/catnip-mouse-toy.png'
+    image: './src/assets/images/items/catnip-mouse-toy.png'
   },
   {
     id: 'shop_mylar_ball',
@@ -379,7 +379,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'mylar_ball' },
     oneTime: false,
-    image: '/src/assets/images/items/mylar-ball.png'
+    image: './src/assets/images/items/mylar-ball.png'
   },
   {
     id: 'shop_feather_toy',
@@ -389,7 +389,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'feather_toy' },
     oneTime: false,
-    image: '/src/assets/images/items/feather-toy.png'
+    image: './src/assets/images/items/feather-toy.png'
   },
   {
     id: 'shop_tennis_ball',
@@ -399,7 +399,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'tennis_ball' },
     oneTime: false,
-    image: '/src/assets/images/items/tennis-ball.png'
+    image: './src/assets/images/items/tennis-ball.png'
   },
   {
     id: 'shop_rope_dog_toy',
@@ -409,7 +409,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'rope_dog_toy' },
     oneTime: false,
-    image: '/src/assets/images/items/rope-dog-toy.png'
+    image: './src/assets/images/items/rope-dog-toy.png'
   },
   {
     id: 'shop_heavy_tug_rope',
@@ -419,7 +419,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'heavy_tug_rope' },
     oneTime: false,
-    image: '/src/assets/images/items/heavy-tug-rope.png'
+    image: './src/assets/images/items/heavy-tug-rope.png'
   },
   {
     id: 'shop_kong_toy',
@@ -429,7 +429,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'kong_toy' },
     oneTime: false,
-    image: '/src/assets/images/items/kong-toy.png'
+    image: './src/assets/images/items/kong-toy.png'
   },
   {
     id: 'shop_treat_ball',
@@ -439,7 +439,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'treat_ball' },
     oneTime: false,
-    image: '/src/assets/images/items/treat-ball.png'
+    image: './src/assets/images/items/treat-ball.png'
   },
   {
     id: 'shop_rubber_duck',
@@ -449,7 +449,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'rubber_duck' },
     oneTime: false,
-    image: '/src/assets/images/items/rubber-duck.png'
+    image: './src/assets/images/items/rubber-duck.png'
   },
   {
     id: 'shop_laser_pointer',
@@ -459,6 +459,6 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'Decorations',
     effect: { type: 'ADD_TO_INVENTORY', value: 'laser_pointer' },
     oneTime: false,
-    image: '/src/assets/images/items/laser-pointer.png'
+    image: './src/assets/images/items/laser-pointer.png'
   }
 ];

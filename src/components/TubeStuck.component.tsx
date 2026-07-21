@@ -58,7 +58,7 @@ export default function TubeStuck({ onFinish }: { onFinish?: () => void }) {
     <div className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden font-pixel select-none z-50 bg-stone-900">
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('/src/assets/images/backgrounds/tube-stuck.png')" }}
+        style={{ backgroundImage: "url('./src/assets/images/backgrounds/tube-stuck.png')" }}
       />
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       

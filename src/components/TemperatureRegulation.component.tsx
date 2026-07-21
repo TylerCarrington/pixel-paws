@@ -89,7 +89,7 @@ export default function TemperatureRegulation({ onFinish }: { onFinish?: () => v
     <div className="fixed inset-0 z-50 overflow-hidden font-pixel bg-stone-900 select-none">
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-70" 
-        style={{ backgroundImage: "url('/src/assets/images/backgrounds/riverside-path.jpeg')" }}
+        style={{ backgroundImage: "url('./src/assets/images/backgrounds/riverside-path.jpeg')" }}
       />
       
       <div className="absolute inset-x-0 top-24 bottom-64 flex flex-col items-center justify-center p-4 z-10 pointer-events-none">

@@ -132,7 +132,7 @@ export default function FetchActivity({ pet, onComplete }: FetchProps) {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-40">
                  <img 
                     src={spriteSrc}
-                    onError={(e) => { e.currentTarget.src = pet.species === Species.CAT ? '/src/assets/images/animals/cats/calico-cat.png' : '/src/assets/images/animals/dogs/husky.png'; }}
+                    onError={(e) => { e.currentTarget.src = pet.species === Species.CAT ? './src/assets/images/animals/cats/calico-cat.png' : './src/assets/images/animals/dogs/husky.png'; }}
                     className={`w-24 h-24 object-contain pixelated transition-all ${isConfused ? 'animate-bounce grayscale' : ''}`}
                     alt="Pet"
                  />

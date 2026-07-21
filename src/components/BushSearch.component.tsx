@@ -74,7 +74,7 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
       {/* Park Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('/src/assets/images/backgrounds/park-fountain.png')" }}
+        style={{ backgroundImage: "url('./src/assets/images/backgrounds/park-fountain.png')" }}
       />
 
       {/* Layered Bush Sprites */}
@@ -93,7 +93,7 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
           }}
         >
           <img 
-            src="/src/assets/images/items/bush.png" 
+            src="./src/assets/images/items/bush.png" 
             alt="Bush" 
             className="w-full h-auto pixelated"
             style={{ transformOrigin: 'bottom center' }}

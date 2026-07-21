@@ -125,8 +125,8 @@ export default function HideSeekActivity({ pet, onComplete }: HideSeekProps) {
                         className="absolute"
                       >
                          <img 
-                            src={`/src/assets/images/animals/dogs/${pet.breed.toLowerCase()}.png`}
-                            onError={(e) => { e.currentTarget.src = '/src/assets/images/animals/dogs/husky.png'; }}
+                            src={`./src/assets/images/animals/dogs/${pet.breed.toLowerCase()}.png`}
+                            onError={(e) => { e.currentTarget.src = './src/assets/images/animals/dogs/husky.png'; }}
                             className="w-16 h-16 object-contain pixelated"
                             alt="Pet"
                          />

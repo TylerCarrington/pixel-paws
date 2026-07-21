@@ -57,7 +57,7 @@ export default function AdoptionCeremony() {
   const adoptedCount = adoptionResults.filter(r => r.isAdopted).length;
 
   const shelterData = SHELTER_LISTINGS.find(s => s.id === shelterExteriorId);
-  const bgImage = spareRoomAccessible ? outsideHouseBg : (shelterData?.image || '/src/assets/images/shelters/shelter-exterior-1.png');
+  const bgImage = spareRoomAccessible ? outsideHouseBg : (shelterData?.image || './src/assets/images/shelters/shelter-exterior-1.png');
 
   return (
     <div 

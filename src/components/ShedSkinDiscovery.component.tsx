@@ -131,7 +131,7 @@ export default function ShedSkinDiscovery({ onFinish }: { onFinish?: () => void 
     <div className="fixed inset-0 z-50 overflow-hidden font-pixel bg-stone-900 select-none">
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('/src/assets/images/backgrounds/barn-interior.png')" }}
+        style={{ backgroundImage: "url('./src/assets/images/backgrounds/barn-interior.png')" }}
       />
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 

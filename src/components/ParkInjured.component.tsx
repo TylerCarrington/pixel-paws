@@ -137,7 +137,7 @@ export default function ParkInjured({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/src/assets/images/backgrounds/park-with-benches.png" 
+          src="./src/assets/images/backgrounds/park-with-benches.png" 
           alt="Park" 
           className="w-full h-full object-cover"
           style={{ 
@@ -184,7 +184,7 @@ export default function ParkInjured({ onFinish }: { onFinish?: () => void }) {
               }}
             >
               <img 
-                src="/src/assets/images/items/thorn.png" 
+                src="./src/assets/images/items/thorn.png" 
                 className="w-full h-full object-contain filter drop-shadow-md" 
                 alt="Thorn" 
               />

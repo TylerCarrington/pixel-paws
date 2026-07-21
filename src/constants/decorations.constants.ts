@@ -6,7 +6,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Pet Bed',
     description: 'A cozy bed for your pet to sleep on.',
     cost: 0,
-    image: '/src/assets/images/items/pet-bed.png',
+    image: './src/assets/images/items/pet-bed.png',
     type: 'floor',
     width: 60,
     height: 40
@@ -16,7 +16,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Cozy Rug',
     description: 'A soft rug in pinks and creams.',
     cost: 30,
-    image: '/src/assets/images/decorations/rug.png',
+    image: './src/assets/images/decorations/rug.png',
     type: 'floor',
     width: 60,
     height: 40
@@ -26,7 +26,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Food Bowl',
     description: 'Ceramic bowl with flower details.',
     cost: 20,
-    image: '/src/assets/images/decorations/pet-bowl.png',
+    image: './src/assets/images/decorations/pet-bowl.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -36,7 +36,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Toy Basket',
     description: 'Wicker basket for holding toys.',
     cost: 25,
-    image: '/src/assets/images/decorations/toy-basket.png',
+    image: './src/assets/images/decorations/toy-basket.png',
     type: 'floor',
     width: 32,
     height: 32
@@ -46,7 +46,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Wall Art',
     description: 'Bone illustration in a cute frame.',
     cost: 35,
-    image: '/src/assets/images/decorations/bone-painting.png',
+    image: './src/assets/images/decorations/bone-painting.png',
     type: 'wall',
     width: 24,
     height: 24
@@ -56,7 +56,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Hanging Plant',
     description: 'Fresh greenery for your pet.',
     cost: 40,
-    image: '/src/assets/images/decorations/hanging-plant.png',
+    image: './src/assets/images/decorations/hanging-plant.png',
     type: 'ceiling',
     width: 32,
     height: 48
@@ -66,7 +66,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Cushion',
     description: 'A round blush pink cushion.',
     cost: 15,
-    image: '/src/assets/images/decorations/pet-cushion.png',
+    image: './src/assets/images/decorations/pet-cushion.png',
     type: 'floor',
     width: 32,
     height: 32
@@ -76,7 +76,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Warm Lamp',
     description: 'Adds a cozy glow to the room.',
     cost: 50,
-    image: '/src/assets/images/decorations/pet-lamp.png',
+    image: './src/assets/images/decorations/pet-lamp.png',
     type: 'floor',
     width: 16,
     height: 32
@@ -86,7 +86,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Apple Slice',
     description: 'A fresh, sweet slice of crisp local apple.',
     cost: 15,
-    image: '/src/assets/images/items/apple-slice.png',
+    image: './src/assets/images/items/apple-slice.png',
     type: 'floor',
     width: 20,
     height: 20
@@ -96,7 +96,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Organic Bird Seed',
     description: 'A rich mixture of sunflower seeds, millet, and oats.',
     cost: 10,
-    image: '/src/assets/images/items/bird-seed.png',
+    image: './src/assets/images/items/bird-seed.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -106,7 +106,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Crispy Sweet Carrot',
     description: 'Crunchy orange garden carrot.',
     cost: 12,
-    image: '/src/assets/images/items/carrot.png',
+    image: './src/assets/images/items/carrot.png',
     type: 'floor',
     width: 16,
     height: 24
@@ -116,7 +116,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Savory Salmon Bites',
     description: 'Melt-in-the-mouth gourmet salmon bites.',
     cost: 18,
-    image: '/src/assets/images/items/cat-treat.png',
+    image: './src/assets/images/items/cat-treat.png',
     type: 'floor',
     width: 18,
     height: 18
@@ -126,7 +126,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Fragrant Timothy Hay',
     description: 'Sweet-smelling dry hay.',
     cost: 8,
-    image: '/src/assets/images/items/hay-strands.png',
+    image: './src/assets/images/items/hay-strands.png',
     type: 'floor',
     width: 24,
     height: 20
@@ -136,7 +136,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Crisp Lettuce Leaf',
     description: 'Hydrating, crisp green leaf.',
     cost: 6,
-    image: '/src/assets/images/items/lettuce-leaf.png',
+    image: './src/assets/images/items/lettuce-leaf.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -146,7 +146,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Ceramic Cream Bowl',
     description: 'Beige cream pottery bowl.',
     cost: 25,
-    image: '/src/assets/images/items/cream-food-bowl.png',
+    image: './src/assets/images/items/cream-food-bowl.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -156,7 +156,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Petal Pink Bowl',
     description: 'Dainty pink food dish.',
     cost: 25,
-    image: '/src/assets/images/items/pet-food-bowl-pink.png',
+    image: './src/assets/images/items/pet-food-bowl-pink.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -166,7 +166,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Stainless Steel Bowl',
     description: 'Durable, non-slip metal plate.',
     cost: 20,
-    image: '/src/assets/images/items/metal-pet-bowl.png',
+    image: './src/assets/images/items/metal-pet-bowl.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -176,7 +176,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Splashy Water Bowl',
     description: 'Blue ceramic bowl containing fresh water.',
     cost: 20,
-    image: '/src/assets/images/items/water-bowl.png',
+    image: './src/assets/images/items/water-bowl.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -186,7 +186,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Raised Wooden Feeder',
     description: 'Cedarwood joint-friendly elevated stand.',
     cost: 65,
-    image: '/src/assets/images/items/raised-feeder-stand.png',
+    image: './src/assets/images/items/raised-feeder-stand.png',
     type: 'floor',
     width: 36,
     height: 24
@@ -196,7 +196,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Catnip Plusha Mouse',
     description: 'Fabric toy stuffed with organic catnip.',
     cost: 20,
-    image: '/src/assets/images/items/catnip-mouse-toy.png',
+    image: './src/assets/images/items/catnip-mouse-toy.png',
     type: 'floor',
     width: 24,
     height: 16
@@ -206,7 +206,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Sparkly Mylar Ball',
     description: 'Crunchy sparkly ball.',
     cost: 15,
-    image: '/src/assets/images/items/mylar-ball.png',
+    image: './src/assets/images/items/mylar-ball.png',
     type: 'floor',
     width: 20,
     height: 20
@@ -216,7 +216,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Chasing Feather Stick',
     description: 'Feather wand for kittens.',
     cost: 25,
-    image: '/src/assets/images/items/feather-toy.png',
+    image: './src/assets/images/items/feather-toy.png',
     type: 'floor',
     width: 28,
     height: 28
@@ -226,7 +226,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Sunny Tennis Ball',
     description: 'Bouncy neon green ball.',
     cost: 10,
-    image: '/src/assets/images/items/tennis-ball.png',
+    image: './src/assets/images/items/tennis-ball.png',
     type: 'floor',
     width: 18,
     height: 18
@@ -236,7 +236,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Knotted Cotton Rope',
     description: 'Cotton rope for chewing.',
     cost: 22,
-    image: '/src/assets/images/items/rope-dog-toy.png',
+    image: './src/assets/images/items/rope-dog-toy.png',
     type: 'floor',
     width: 32,
     height: 16
@@ -246,7 +246,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Heavy Duty Tug Rope',
     description: 'Strong thick pull chord.',
     cost: 45,
-    image: '/src/assets/images/items/heavy-tug-rope.png',
+    image: './src/assets/images/items/heavy-tug-rope.png',
     type: 'floor',
     width: 36,
     height: 16
@@ -256,7 +256,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Cozy Stuffable Cone',
     description: 'Stuffable durable rubber cone.',
     cost: 40,
-    image: '/src/assets/images/items/kong-toy.png',
+    image: './src/assets/images/items/kong-toy.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -266,7 +266,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Roll-and-Seek Toy',
     description: 'Rollable puzzle treat ball.',
     cost: 50,
-    image: '/src/assets/images/items/treat-ball.png',
+    image: './src/assets/images/items/treat-ball.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -276,7 +276,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Squeaky Rubber Duck',
     description: 'Cheerful squeaking yellow bathing buddy.',
     cost: 18,
-    image: '/src/assets/images/items/rubber-duck.png',
+    image: './src/assets/images/items/rubber-duck.png',
     type: 'floor',
     width: 24,
     height: 24
@@ -286,7 +286,7 @@ export const DECORATIONS: Record<string, DecorationItem> = {
     name: 'Twinkling Laser',
     description: 'Interactive red chasing dot.',
     cost: 55,
-    image: '/src/assets/images/items/laser-pointer.png',
+    image: './src/assets/images/items/laser-pointer.png',
     type: 'floor',
     width: 20,
     height: 20

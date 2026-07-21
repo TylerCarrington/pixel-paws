@@ -90,12 +90,12 @@ export default function AnimalSprite({
       style={{ width: size, height: size }}
     >
       <img
-        src={`/src/assets/images/animals/${folder}/${spriteKey}.png`}
+        src={`./src/assets/images/animals/${folder}/${spriteKey}.png`}
         className={`w-full h-full object-contain pixelated ${getAnimationClass()}`}
         style={{ imageRendering: 'pixelated' }}
         alt="Animal"
         onError={(e) => {
-          e.currentTarget.src = `/src/assets/images/animals/${folder}/placeholder.png`; // Fallback
+          e.currentTarget.src = `./src/assets/images/animals/${folder}/placeholder.png`; // Fallback
         }}
       />
     </div>

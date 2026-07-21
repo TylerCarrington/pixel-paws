@@ -133,7 +133,7 @@ export default function RockHiding({ onFinish }: { onFinish?: () => void }) {
     <div className="fixed inset-0 z-50 overflow-hidden font-pixel bg-stone-900 select-none">
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-80" 
-        style={{ backgroundImage: "url('/src/assets/images/backgrounds/stone-wall-garden.png')" }}
+        style={{ backgroundImage: "url('./src/assets/images/backgrounds/stone-wall-garden.png')" }}
       />
 
       {ROCKS.map(rock => {
@@ -181,7 +181,7 @@ export default function RockHiding({ onFinish }: { onFinish?: () => void }) {
               onPointerCancel={(e) => handlePointerUp(e, rock.id)}
             >
               <img 
-                src="/src/assets/images/items/rock.png" 
+                src="./src/assets/images/items/rock.png" 
                 alt="Rock" 
                 className="w-[120%] h-[120%] max-w-none object-contain drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)] pointer-events-none" 
                 draggable={false} 
