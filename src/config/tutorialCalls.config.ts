@@ -10,7 +10,7 @@ export const TUTORIAL_CALLS: Record<number, CallTemplate[]> = {
       description: 'Someone left a small cardboard box in front of the local grocery store. There\'s a tiny dog inside!',
       species: 'Dog',
       rarity: Rarity.COMMON,
-      discoveryMethod: DiscoveryMethod.DIRTY, // Use wash scene for tutorial
+      discoveryMethod: DiscoveryMethod.BOX,
       requiredFacility: ['KENNEL_BASIC_3']
     },
     {

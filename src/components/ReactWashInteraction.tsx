@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore } from '../stores/game.store';
 import { audioManager } from '../audio/audio.manager';
 import { SFX } from '../config/audio.config';
+import AnimalSprite from './AnimalSprite.component';
 
 interface ReactWashInteractionProps {
   isRescue?: boolean;
@@ -25,6 +26,7 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
   const assignedBreed = useGameStore(state => 
     isRescue ? state.rescueBreed : state.assignedBreed
   );
+  const rescueSpecies = useGameStore(state => state.rescueSpecies);
 
   const initFirstWash = useGameStore(state => state.initializeWash);
   const initRescueWash = useGameStore(state => state.initializeRescueWash);
@@ -108,6 +110,7 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
           finishRescueWash();
         } else {
           if (onPostReveal) {
+            finishFirstWash();
             onPostReveal();
           } else {
             finishFirstWash();
@@ -134,7 +137,7 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
           <motion.div 
             key="muddy"
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('./src/assets/images/muddy-shape.png')` }}
+            style={{ backgroundImage: `url('/src/assets/images/items/muddy-shape.png')` }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
           >
@@ -150,7 +153,7 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
           <motion.div
             key="clean"
             className="absolute inset-0 bg-cover bg-center flex items-center justify-center"
-            style={{ backgroundImage: `url('./src/assets/images/riverside-bridge-close.png')` }}
+            style={{ backgroundImage: `url('/src/assets/images/backgrounds/riverside-bridge-close.png')` }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -160,15 +163,11 @@ export default function ReactWashInteraction({ isRescue, onPostReveal, onFinish 
               animate={{ scale: 1.5, opacity: 1, y: 20 }}
               transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.4 }}
             >
-              <img 
-                src={`./src/assets/images/animals/dogs/${assignedBreed.spriteKey}.png`} 
-                alt="Pet Revealed" 
-                className="pixelated"
-                style={{ imageRendering: 'pixelated', width: '128px', height: '128px' }}
-                onError={(e) => {
-                  // Fallback for missing images mostly for non-husky ones right now
-                  e.currentTarget.style.display = 'none';
-                }}
+              <AnimalSprite 
+                spriteKey={assignedBreed.spriteKey}
+                species={isRescue ? (rescueSpecies || 'DOG') : 'DOG'}
+                size={128}
+                animation="happy"
               />
             </motion.div>
           </motion.div>

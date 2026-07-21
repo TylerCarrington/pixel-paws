@@ -1,17 +1,15 @@
 import { Animal, HealthStatus } from '../types/animal.types';
 
-export enum MoodState {
-  HAPPY = 'HAPPY',
-  CALM = 'CALM',
-  ANXIOUS = 'ANXIOUS',
-  SHY = 'SHY'
-}
+export type MoodType = 'Happy' | 'Calm' | 'Anxious' | 'Shy';
 
-export function determineMood(animal: Animal /* action history could go here */): MoodState {
-  // Simplified logic for now
-  if (animal.healthStatus !== HealthStatus.HEALTHY) return MoodState.ANXIOUS;
-  if (!animal.isRevealed) return MoodState.SHY;
-  if (animal.desirability > 70) return MoodState.HAPPY;
-  if (animal.desirability > 30) return MoodState.CALM;
-  return MoodState.ANXIOUS;
+export function determineMood(animal: Animal /* action history could go here */): MoodType {
+  // Use animal.mood if it already has one (new animals)
+  if (animal.mood) return animal.mood;
+
+  // Fallback for legacy data or dynamic recalculation if desired
+  if (animal.healthStatus !== HealthStatus.HEALTHY) return 'Anxious';
+  if (!animal.isRevealed) return 'Shy';
+  if (animal.desirability > 70) return 'Happy';
+  if (animal.desirability > 30) return 'Calm';
+  return 'Anxious';
 }

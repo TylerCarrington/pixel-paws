@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StarterDogDef } from '../config/starterDogs.config';
+import { Species } from '../types/animal.types';
 import AvatarPlaceholder from './AvatarPlaceholder.component';
 
 interface PetNameInputProps {
@@ -9,6 +9,7 @@ interface PetNameInputProps {
   initialName?: string;
   onConfirm: (name: string) => void;
   spriteKey?: string;
+  species?: Species;
 }
 
 export default function PetNameInput({ 
@@ -17,7 +18,8 @@ export default function PetNameInput({
   maxLength = 15, 
   initialName = '', 
   onConfirm,
-  spriteKey
+  spriteKey,
+  species = Species.DOG
 }: PetNameInputProps) {
   const [name, setName] = useState(initialName);
 
@@ -25,7 +27,7 @@ export default function PetNameInput({
     <div className="flex flex-col items-center justify-center bg-warm-cream bg-opacity-95 p-8 rounded-xl border-4 border-soft-rose shadow-[0_4px_12px_rgba(180,120,100,0.15)] max-w-md w-full font-pixel">
       {spriteKey && (
         <div className="mb-4 transform scale-150 relative -top-4">
-          <AvatarPlaceholder spriteKey={spriteKey} />
+          <AvatarPlaceholder spriteKey={spriteKey} species={species} />
         </div>
       )}
       {breedLabel && (

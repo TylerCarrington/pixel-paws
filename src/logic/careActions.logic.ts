@@ -1,6 +1,6 @@
 import { Animal, HealthStatus } from '../types/animal.types';
 import { CareActionType, CARE_ACTIONS } from '../constants/careActions.constants';
-import { determineMood, MoodState } from './moodState.logic';
+import { determineMood } from './moodState.logic';
 import { clampDesirability } from './desirability.logic';
 
 export function applyAction(animal: Animal, action: CareActionType): Animal {
@@ -14,10 +14,10 @@ export function applyAction(animal: Animal, action: CareActionType): Animal {
   const mood = determineMood(animal);
 
   // Apply mood modifiers
-  if (mood === MoodState.SHY && (action === CareActionType.PET || action === CareActionType.FEED)) {
+  if (mood === 'Shy' && (action === CareActionType.PET || action === CareActionType.FEED)) {
      delta += 5;
   }
-  if (mood === MoodState.ANXIOUS && action === CareActionType.TRAIN) {
+  if (mood === 'Anxious' && action === CareActionType.TRAIN) {
      delta -= 5;
   }
   

@@ -1,13 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Animal } from '../types/animal.types';
+import { AdoptionResult } from '../logic/adoptionRoll.logic';
+import AnimalSprite from './AnimalSprite.component';
+import { STARTER_DOGS } from '../config/starterDogs.config';
+import { STARTER_CATS } from '../config/starterCats.config';
 
 interface PayoutSummaryProps {
   total: number;
   adoptedCount: number;
+  adoptionResults: AdoptionResult[];
+  shelterAnimals: Animal[];
   onFinish: () => void;
 }
 
-export default function PayoutSummary({ total, adoptedCount, onFinish }: PayoutSummaryProps) {
+export default function PayoutSummary({ total, adoptedCount, adoptionResults, shelterAnimals, onFinish }: PayoutSummaryProps) {
+  const adoptions = adoptionResults.filter(r => r.isAdopted);
+
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.9 }}
@@ -17,6 +26,37 @@ export default function PayoutSummary({ total, adoptedCount, onFinish }: PayoutS
       <h2 className="text-xl font-game text-night-plum mb-8 uppercase tracking-widest leading-relaxed">
         Day Summary
       </h2>
+
+      {adoptedCount === 0 && (
+        <p className="text-sm text-stone-grey italic mb-8">
+          No adoptions today... but you took great care of them. Keep trying!
+        </p>
+      )}
+
+      {adoptions.length > 0 && (
+        <div className="mb-6 space-y-3 bg-stone-grey/5 p-4 rounded-xl border border-stone-grey/10 max-h-48 overflow-y-auto custom-scrollbar">
+          {adoptions.map(result => {
+            const animal = shelterAnimals.find(a => a.id === result.animalId);
+            if (!animal) return null;
+            const breedDef = animal.species === 'CAT' 
+              ? STARTER_CATS.find(c => c.id === animal.breed)
+              : STARTER_DOGS.find(d => d.id === animal.breed);
+            const spriteKey = breedDef?.spriteKey || animal.breed;
+
+            return (
+              <div key={result.animalId} className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    <AnimalSprite species={animal.species} spriteKey={spriteKey} size={24} animation="idle" />
+                  </div>
+                  <span className="text-dialogue-text font-game text-xs">{animal.name}</span>
+                </div>
+                <span className="text-amber-glow font-game text-xs tracking-tighter">+${result.payout}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       <div className="space-y-6 mb-10">
         <div className="flex justify-between items-center text-sm border-b border-stone-grey/20 pb-4">

@@ -1,4 +1,5 @@
 import { Animal, Rarity } from '../types/animal.types';
+import { RARITY_DATA } from '../constants/rarity.constants';
 
 export function clampDesirability(value: number): number {
   return Math.max(0, Math.min(100, value));
@@ -9,21 +10,11 @@ export function getAdoptionChance(animal: Animal, facilityUpgrades: string[] = [
 
   // Passive boosts from shop items
   if (facilityUpgrades.includes('premium_bowl')) adjustedDesirability += 5;
-  if (facilityUpgrades.includes('cozy_bed')) adjustedDesirability += 10;
-  if (facilityUpgrades.includes('enrichment_toy')) adjustedDesirability += 3;
+  if (facilityUpgrades.includes('cozy_bed')) adjustedDesirability += 8; // Tweak numbers
+  if (facilityUpgrades.includes('enrichment_toy')) adjustedDesirability += 4;
 
-  // Base chance is desirability / 100
-  let chance = clampDesirability(adjustedDesirability) / 100;
+  const desirability = clampDesirability(adjustedDesirability);
+  const maxChance = RARITY_DATA[animal.rarity].baseAdoptionChanceMax;
 
-  // Cap chance based on rarity
-  let cap = 1.0;
-  switch (animal.rarity) {
-    case Rarity.COMMON: cap = 0.9; break;
-    case Rarity.UNCOMMON: cap = 0.7; break;
-    case Rarity.RARE: cap = 0.4; break;
-    case Rarity.EXOTIC: cap = 0.2; break;
-    case Rarity.LEGENDARY: cap = 0.05; break;
-  }
-
-  return Math.min(chance, cap);
+  return (desirability / 100) * maxChance;
 }

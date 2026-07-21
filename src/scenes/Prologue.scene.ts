@@ -28,7 +28,7 @@ export default class PrologueScene extends Phaser.Scene {
             this.unsub();
             this.unsub = null;
         }
-        this.scene.start('PlaceholderScene');
+        // No longer transitioning to PlaceholderScene
       }
     });
 

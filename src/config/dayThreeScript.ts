@@ -2,7 +2,7 @@ export const dayThreeScript = [
   {
     id: 'day3Morning',
     type: 'background',
-    image: './src/assets/images/house-evening.png', // Updated background image
+    image: '/src/assets/images/backgrounds/house-evening.png', // Updated background image
     transition: 'crossfade',
     duration: 1400
   },

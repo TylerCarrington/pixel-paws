@@ -18,13 +18,13 @@ import MorningBoard from './components/MorningBoard.component';
 import AdoptionCeremony from './components/AdoptionCeremony.component';
 import VetWing from './components/VetWing.component';
 import ShopScreen from './components/ShopScreen.component';
-import ShelterNav from './components/ShelterNav.component';
 import Day2Call from './components/Day2Call.component';
 import BushSearch from './components/BushSearch.component';
 import Day2Inspiration from './components/Day2Inspiration.component';
 import HomeView from './components/HomeView.component';
 import FacilityScreen from './components/FacilityScreen.component';
 import UnlockNotification from './components/UnlockNotification.component';
+import LevelUpNotification from './components/LevelUpNotification.component';
 import ReactWashInteraction from './components/ReactWashInteraction';
 import { useGameStore } from './stores/game.store';
 import { createStarterPet } from './logic/ownedPet.logic';
@@ -37,6 +37,7 @@ import OpeningSequence from './scenes/OpeningSequence';
 import DayOneWalk from './scenes/DayOneWalk';
 import DayTwoWalk from './scenes/DayTwoWalk';
 import DayThreeMorning from './scenes/DayThreeMorning';
+import ShelterPurchaseScene from './scenes/ShelterPurchaseScene.scene';
 import AnimationDebug from './components/AnimationDebug.component';
 import AlleyRescue from './components/AlleyRescue.component';
 import FenceRescue from './components/FenceRescue.component';
@@ -46,8 +47,9 @@ import WoodpileRescue from './components/WoodpileRescue.component';
 import ChaseRunaway from './components/ChaseRunaway.component';
 import PorchRescue from './components/PorchRescue.component';
 import RiversideWarmup from './components/RiversideWarmup.component';
+import ParkInjured from './components/ParkInjured.component';
 import GamesDebug from './components/GamesDebug.component';
-import SettingsScreen from './components/SettingsScreen.component';
+import ActivitiesDebug from './components/ActivitiesDebug.component';
 import { audioManager } from './audio/audio.manager';
 import { MUSIC_TRACKS } from './config/audio.config';
 
@@ -71,17 +73,26 @@ export default function App() {
   const setPhase6State = useGameStore(state => state.setPhase6State);
   const addOwnedPet = useGameStore(state => state.addOwnedPet);
   const startDay = useGameStore(state => state.startDay);
+  const completeRescueWash = useGameStore(state => state.completeRescueWash);
 
   const playerAppearance = useGameStore(state => state.playerAppearance);
+  const actionsPerPetToday = useGameStore(state => state.actionsPerPetToday);
   const { hearts, addHeart } = useHeartParticles();
   
+  // Fix broken phase6State from old 'reflection'
+  useEffect(() => {
+    if (phase6State === 'reflection') {
+      useGameStore.getState().setPhase6State('shelter_view');
+    }
+  }, [phase6State]);
+
   const [isLoading, setIsLoading] = useState(true);
   const [showTitleScreen, setShowTitleScreen] = useState(false);
   const [showOpening, setShowOpening] = useState(false);
   const [showDayOneWalk, setShowDayOneWalk] = useState(false);
   const [resumePostReveal, setResumePostReveal] = useState(false);
   const [devJumpId, setDevJumpId] = useState<string | undefined>(undefined);
-  const [showSettings, setShowSettings] = useState(false);
+  const [showDevControls, setShowDevControls] = useState(false);
 
   // Audio Phase Management
   useEffect(() => {
@@ -116,9 +127,39 @@ export default function App() {
         setShowTitleScreen(false);
         setResumePostReveal(false);
         
+        if (target === 'morning_board') {
+          useGameStore.setState({ 
+            catsUnlocked: true, 
+            facilityUpgrades: [...useGameStore.getState().facilityUpgrades, 'facility_shelter'] 
+          });
+          useGameStore.getState().setPhase6State('phone_call');
+          // Clear calls to force a reroll
+          import('./stores/morningBoard.store').then(m => {
+            m.useMorningBoardStore.getState().setTodayCalls([]);
+          });
+          return;
+        }
+        if (target === 'shelter_view') {
+          useGameStore.setState({ 
+            catsUnlocked: true, 
+            facilityUpgrades: [...useGameStore.getState().facilityUpgrades, 'facility_shelter'] 
+          });
+          useGameStore.getState().setPhase6State('shelter_view');
+          return;
+        }
+        if (target === 'home_view') {
+          useGameStore.setState({ 
+            catsUnlocked: true, 
+            facilityUpgrades: [...useGameStore.getState().facilityUpgrades, 'facility_shelter'] 
+          });
+          useGameStore.getState().setPhase6State('home_view');
+          return;
+        }
+
         // Define Day 2 and Day 3 targets
         const day2Targets = ['parkScene', 'spareRoomScene', 'day2Petting', 'day2TuckIn'];
         const day3Targets = ['day3Morning', 'morningBoardTutorial'];
+        const day4Targets = ['day4Shelter', 'shelterPurchase'];
         
         if (target === 'animation_debug') {
           useGameStore.getState().setPhase6State('animation_debug');
@@ -130,6 +171,14 @@ export default function App() {
 
         if (target === 'games_debug') {
           useGameStore.getState().setPhase6State('games_debug');
+          setShowOpening(false);
+          setShowTitleScreen(false);
+          setShowDayOneWalk(false);
+          return;
+        }
+
+        if (target === 'activities_debug') {
+          useGameStore.getState().setPhase6State('activities_debug');
           setShowOpening(false);
           setShowTitleScreen(false);
           setShowDayOneWalk(false);
@@ -156,6 +205,24 @@ export default function App() {
           } else {
             setDevJumpId(target);
           }
+        } else if (day4Targets.includes(target)) {
+          // Setup for Day 4+ Shelter
+          useGameStore.getState().startDay(4);
+          useGameStore.getState().setPrologueComplete(true);
+          useGameStore.getState().setShelterName(useGameStore.getState().shelterName || "Dev Shelter");
+          
+          if (target === 'shelterPurchase') {
+             useGameStore.getState().setPhase6State('shelter_purchase');
+             // Reset capacity for test jump to ensure the first-purchase logic triggers
+             useGameStore.setState({ shelterCapacity: 3, catCapacity: 0 });
+          } else {
+             useGameStore.getState().setPhase6State('shelter_view');
+          }
+          
+          setShowDayOneWalk(false);
+          setShowOpening(false);
+          setShowTitleScreen(false);
+          setDevJumpId(undefined);
         } else {
           // Day 1 targets - MUST set devJumpId BEFORE setShowDayOneWalk for startBeatId to be caught
           setDevJumpId(target);
@@ -178,16 +245,17 @@ export default function App() {
   const showBuilder = false; // Disabled, replaced by OpeningSequence
   const showPrologueUI = false; // Disabled, replaced by OpeningSequence/DayOneWalk
   const showWashInteraction = (prologueComplete && !washComplete && phase6State === 'pending') || phase6State === 'wash_rescue';
-  const showBreedAnnouncement = washComplete && (!phase4Complete || phase6State === 'wash_rescue');
+  const showBreedAnnouncement = washComplete && (!phase4Complete || phase6State === 'wash_rescue') && dayNumber !== 1;
   
-  const showNaming = phase4Complete && phase5State === 'naming';
-  const showPhase5Complete = phase4Complete && phase5State === 'complete' && phase6State === 'pending';
+  const showNaming = phase4Complete && phase5State === 'naming' && !!assignedBreed && dayNumber !== 1;
+  const showPhase5Complete = phase4Complete && phase5State === 'complete' && phase6State === 'pending' && dayNumber !== 1;
   const showShelterNaming = phase6State === 'naming';
   const showShelterFloor = phase6State === 'shelter_view';
   const showMorningBoard = phase6State === 'phone_call';
   const showAdoptionCeremony = phase6State === 'adoption_results';
   const showVetWing = phase6State === 'vet_wing';
   const showFacilityShop = phase6State === 'facility_shop';
+  const showHomeShop = phase6State === 'home_shop';
   const showDay2Call = phase6State === 'day2_special';
   const showBushSearch = phase6State === 'bush_search';
   const showDay2Discovery = phase6State === 'day2_discovery';
@@ -195,6 +263,7 @@ export default function App() {
   const showHomeView = phase6State === 'home_view';
   const showFacilityExpansion = phase6State === 'facility_expansion';
   const showDay3Morning = phase6State === 'day3_morning';
+  const showShelterPurchase = phase6State === 'shelter_purchase';
   const showAnimationDebug = phase6State === 'animation_debug';
   const showAlleyRescue = phase6State === 'alley_rescue';
   const showFenceRescue = phase6State === 'fence_rescue';
@@ -204,7 +273,9 @@ export default function App() {
   const showChaseRunaway = phase6State === 'runaway_chase';
   const showPorchRescue = phase6State === 'porch_hiding';
   const showRiversideWarmup = phase6State === 'riverside_warmup';
+  const showParkInjured = phase6State === 'park_injured';
   const showGamesDebug = phase6State === 'games_debug';
+  const showActivitiesDebug = phase6State === 'activities_debug';
 
   const isShelterView = ['shelter_view', 'vet_wing', 'facility_shop', 'facility_expansion'].includes(phase6State);
 
@@ -234,13 +305,21 @@ export default function App() {
 
   const initializeWash = useGameStore(state => state.initializeWash);
   
+  // Ensure assignedBreed is present if we are past prologue on day 1
+  useEffect(() => {
+    if (prologueComplete && dayNumber === 1 && !assignedBreed && !isLoading) {
+      initializeWash();
+    }
+  }, [prologueComplete, dayNumber, assignedBreed, isLoading, initializeWash]);
+
   const handlePlay = () => {
     setShowTitleScreen(false);
     const seen = localStorage.getItem('pawsOpeningSeen');
     if (seen === 'true') {
       const walkSeen = localStorage.getItem('dayOneWalkSeen');
       if (walkSeen === 'true') {
-        // Existing flow
+        // Skip walk if already seen
+        setShowDayOneWalk(false);
       } else {
         setShowDayOneWalk(true);
       }
@@ -254,6 +333,7 @@ export default function App() {
       <AnimatePresence>
         {isLoading && (
           <LoadingScreen 
+            key="loading-screen"
             onFinish={() => {
               setIsLoading(false);
               setShowTitleScreen(true);
@@ -261,10 +341,10 @@ export default function App() {
           />
         )}
         {showTitleScreen && (
-          <TitleScreen onPlay={handlePlay} />
+          <TitleScreen key="title-screen" onPlay={handlePlay} />
         )}
         {showOpening && (
-          <OpeningSequence onFinish={() => {
+          <OpeningSequence key="opening-sequence" onFinish={() => {
             setShowOpening(false);
             if (!localStorage.getItem('dayOneWalkSeen')) {
               setShowDayOneWalk(true);
@@ -273,6 +353,7 @@ export default function App() {
         )}
         {showDayOneWalk && (
           <DayOneWalk 
+            key="day-one-walk"
             startBeatId={devJumpId}
             onFinish={(nextParam) => {
               setShowDayOneWalk(false);
@@ -289,29 +370,32 @@ export default function App() {
             }} 
           />
         )}
-        {showSettings && <SettingsScreen onClose={() => setShowSettings(false)} />}
         {unlockedNotif && (
           <UnlockNotification 
+            key={`unlock-${unlockedNotif}`}
             species={unlockedNotif} 
             onClose={() => setUnlockedNotif(null)} 
           />
         )}
+        <LevelUpNotification key="level-up-notif" />
       </AnimatePresence>
 
-      <div className="fixed top-6 right-6 z-[100] flex gap-4">
-        <button 
-          onClick={() => setShowSettings(true)}
-          className="w-10 h-10 bg-night-plum/40 hover:bg-soft-lilac/60 backdrop-blur-md rounded-xl border border-warm-cream/10 flex items-center justify-center transition-all group active:scale-95"
-        >
-          <span className="text-lg group-hover:rotate-90 transition-transform">⚙️</span>
-        </button>
+      <div className="fixed top-6 left-6 z-[100] flex gap-4">
+        {import.meta.env?.MODE === 'development' && (
+          <button 
+            onClick={() => setShowDevControls(true)}
+            className="w-10 h-10 opacity-0 hover:opacity-100 bg-indigo-900/40 hover:bg-indigo-600/60 backdrop-blur-md rounded-xl border border-indigo-400/20 flex items-center justify-center transition-all group active:scale-95 cursor-pointer"
+          >
+            <span className="text-lg group-hover:animate-pulse">🛠️</span>
+          </button>
+        )}
       </div>
 
-      <DevControls />
+      <DevControls isOpen={showDevControls} onClose={() => setShowDevControls(false)} />
       
       <div className="flex-1 relative w-full h-full overflow-hidden">
         {/* Main Content Area */}
-        <div className={`absolute inset-0 ${isShelterView ? 'bottom-24' : ''} overflow-hidden`}>
+        <div className={`absolute inset-0 overflow-hidden`}>
           {/* Game Canvas is always at the bottom */}
           <div className="absolute inset-0 max-w-7xl mx-auto w-full flex items-center justify-center z-0">
             <GameCanvas />
@@ -320,7 +404,14 @@ export default function App() {
           {showWashInteraction && !resumePostReveal && (
             <ReactWashInteraction 
               isRescue={phase6State === 'wash_rescue'} 
-              onPostReveal={() => setResumePostReveal(true)}
+              onPostReveal={() => {
+                if (dayNumber === 1) {
+                  setDevJumpId('postReveal');
+                  setShowDayOneWalk(true);
+                } else {
+                  setResumePostReveal(true);
+                }
+              }}
             />
           )}
 
@@ -397,7 +488,7 @@ export default function App() {
              </div>
           )}
 
-          {showFacilityShop && (
+          {(showFacilityShop || showHomeShop) && (
              <div className="absolute inset-0 z-20 overflow-hidden">
                <ShopScreen />
              </div>
@@ -408,7 +499,7 @@ export default function App() {
           )}
 
           {showBushSearch && (
-             <BushSearch />
+             <BushSearch onFinish={completeRescueWash} />
           )}
 
           {showDay2Discovery && (
@@ -441,6 +532,12 @@ export default function App() {
              />
           )}
 
+          {showShelterPurchase && (
+             <div className="absolute inset-0 z-50">
+               <ShelterPurchaseScene onFinish={() => setPhase6State('naming')} />
+             </div>
+          )}
+
           {showDay2Inspiration && (
              <div className="hidden">
                {/* Redundant, content is now in DayTwoWalk */}
@@ -467,49 +564,55 @@ export default function App() {
 
           {showAlleyRescue && (
             <div className="absolute inset-0 z-[100] bg-night-plum">
-              <AlleyRescue />
+              <AlleyRescue onFinish={completeRescueWash} />
             </div>
           )}
 
           {showFenceRescue && (
             <div className="absolute inset-0 z-[100] bg-stone-grey text-white">
-              <FenceRescue />
+              <FenceRescue onFinish={completeRescueWash} />
             </div>
           )}
 
           {showDarkSearch && (
             <div className="absolute inset-0 z-[100] bg-black text-white">
-              <LightSearch />
+              <LightSearch onFinish={completeRescueWash} />
             </div>
           )}
 
           {showFoodTempt && (
             <div className="absolute inset-0 z-[100] bg-night-plum text-white">
-              <FoodTempt />
+              <FoodTempt onFinish={completeRescueWash} />
             </div>
           )}
 
           {showWoodpileRescue && (
             <div className="absolute inset-0 z-[100] bg-night-plum text-white">
-              <WoodpileRescue />
+              <WoodpileRescue onFinish={completeRescueWash} />
             </div>
           )}
 
           {showChaseRunaway && (
             <div className="absolute inset-0 z-[100] bg-night-plum text-white">
-              <ChaseRunaway />
+              <ChaseRunaway onFinish={completeRescueWash} />
             </div>
           )}
 
           {showPorchRescue && (
             <div className="absolute inset-0 z-[100] bg-black text-white">
-              <PorchRescue />
+              <PorchRescue onFinish={completeRescueWash} />
             </div>
           )}
 
           {showRiversideWarmup && (
             <div className="absolute inset-0 z-[100] bg-black text-white">
-              <RiversideWarmup />
+              <RiversideWarmup onFinish={completeRescueWash} />
+            </div>
+          )}
+
+          {showParkInjured && (
+            <div className="absolute inset-0 z-[100] bg-black text-white">
+              <ParkInjured onFinish={completeRescueWash} />
             </div>
           )}
 
@@ -518,14 +621,13 @@ export default function App() {
               <GamesDebug />
             </div>
           )}
-        </div>
 
-        {/* Navigation Bar Area */}
-        {isShelterView && (
-          <div className="absolute bottom-0 left-0 right-0 h-24 z-50">
-            <ShelterNav />
-          </div>
-        )}
+          {showActivitiesDebug && (
+            <div className="absolute inset-0 z-[100] bg-night-plum">
+              <ActivitiesDebug />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

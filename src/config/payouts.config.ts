@@ -1,8 +1,8 @@
 import { Rarity } from '../types/animal.types';
 
 export const BASE_PAYOUTS: Record<Rarity, number> = {
-  [Rarity.COMMON]: 100,
-  [Rarity.UNCOMMON]: 250,
+  [Rarity.COMMON]: 30,
+  [Rarity.UNCOMMON]: 90,
   [Rarity.RARE]: 600,
   [Rarity.EXOTIC]: 1200,
   [Rarity.LEGENDARY]: 3000

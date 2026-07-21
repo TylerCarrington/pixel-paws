@@ -1,8 +1,6 @@
 {
   "name": "Paws & Purpose",
   "description": "An animal shelter management game focused on rescue, care, and finding forever homes.",
-  "requestFramePermissions": [
-    "camera"
-  ],
+  "requestFramePermissions": [],
   "majorCapabilities": []
 }

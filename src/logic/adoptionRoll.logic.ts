@@ -5,6 +5,7 @@ export interface AdoptionResult {
   animalId: string;
   isAdopted: boolean;
   payout: number;
+  chance: number;
 }
 
 export function rollForAdoptions(
@@ -26,7 +27,8 @@ export function rollForAdoptions(
       return {
         animalId: animal.id,
         isAdopted: false,
-        payout: 0
+        payout: 0,
+        chance: 0
       };
     }
 
@@ -37,7 +39,8 @@ export function rollForAdoptions(
     return {
       animalId: animal.id,
       isAdopted,
-      payout: isAdopted ? calculatePayoutFn(animal.rarity, animal.desirability) : 0
+      payout: isAdopted ? calculatePayoutFn(animal.rarity, animal.desirability) : 0,
+      chance
     };
   });
 }

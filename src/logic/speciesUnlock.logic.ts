@@ -2,14 +2,14 @@ import { Species } from '../types/animal.types';
 import { HABITAT_UPGRADES } from '../config/habitatUpgrades.config';
 import { VET_UPGRADES_TREE } from '../config/vetUpgradesTree.config';
 
-export function getUnlockedSpecies(facilityUpgrades: string[]): Species[] {
+export function getUnlockedSpecies(facilityUpgrades: string[], catsUnlocked: boolean = false): Species[] {
   const unlocked = [Species.DOG];
 
   // Logic: Species is unlocked only if both its habitat AND its vet requirement are met
   // Note: Dog starts unlocked.
   
   // Cat check
-  if (facilityUpgrades.includes('habitat_cat_room') && facilityUpgrades.includes('vet_exam_room')) {
+  if (catsUnlocked || (facilityUpgrades.includes('habitat_cat_room') && facilityUpgrades.includes('vet_exam_room'))) {
     unlocked.push(Species.CAT);
   }
 

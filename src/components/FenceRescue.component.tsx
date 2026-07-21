@@ -6,6 +6,7 @@ import { CheckCircle2, Link as LinkIcon } from 'lucide-react';
 
 export default function FenceRescue({ onFinish }: { onFinish?: () => void }) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
+  const rescueSpecies = useGameStore(state => state.rescueSpecies);
   const setPhase6State = useGameStore(state => state.setPhase6State);
   
   // Game states
@@ -89,7 +90,7 @@ export default function FenceRescue({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/playground.png" 
+          src="/src/assets/images/backgrounds/playground.png" 
           className="w-full h-full object-cover opacity-80"
           alt="School Playground"
           onError={(e) => {
@@ -162,6 +163,7 @@ export default function FenceRescue({ onFinish }: { onFinish?: () => void }) {
                 >
                   <AnimalSprite 
                     spriteKey={rescueBreed.spriteKey}
+                    species={rescueSpecies || 'DOG'}
                     animation={tensionEffect > 0.7 ? 'nervous' : (tensionEffect > 0.3 ? 'shivering' : 'idle')}
                     size={160}
                   />
@@ -183,6 +185,7 @@ export default function FenceRescue({ onFinish }: { onFinish?: () => void }) {
               >
                  <AnimalSprite 
                     spriteKey={rescueBreed.spriteKey}
+                    species={rescueSpecies || 'DOG'}
                     animation="happy"
                     size={160}
                   />

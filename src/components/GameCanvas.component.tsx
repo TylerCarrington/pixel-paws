@@ -1,12 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import Phaser from 'phaser';
 import BootScene from '../scenes/Boot.scene';
-import PlaceholderScene from '../scenes/Placeholder.scene';
 import PrologueScene from '../scenes/Prologue.scene';
-import { PettingInteractionScene } from '../scenes/PettingInteraction.scene';
-import { BedroomScene } from '../scenes/BedroomScene.scene';
 import { PhoneCallCutscene } from '../scenes/PhoneCallCutscene.scene';
-import { ReflectionScene } from '../scenes/Reflection.scene';
 import { ShelterExteriorScene } from '../scenes/ShelterExterior.scene';
 import { ShelterViewScene } from '../scenes/ShelterView.scene';
 import { RESOLUTION } from '../config/resolution.config';
@@ -29,12 +25,8 @@ export default function GameCanvas() {
         },
         scene: [
           BootScene, 
-          PlaceholderScene, 
           PrologueScene, 
-          PettingInteractionScene, 
-          BedroomScene,
           PhoneCallCutscene,
-          ReflectionScene,
           ShelterExteriorScene,
           ShelterViewScene
         ]
@@ -48,22 +40,13 @@ export default function GameCanvas() {
       const activeScene = gameRef.current.scene.getScenes(true)[0];
       if (!activeScene) return;
 
-      // Phase 5 routing
-      if (state.phase5State === 'petting' && prevState.phase5State !== 'petting') {
-         activeScene.scene.start('PettingInteractionScene');
-      }
-      
-      if (state.phase5State === 'bedtime' && prevState.phase5State !== 'bedtime') {
-         activeScene.scene.start('BedroomScene');
-      }
-
       // Phase 6 routing
       if (state.phase6State === 'phone_call' && prevState.phase6State !== 'phone_call') {
          activeScene.scene.start('ShelterViewScene');
       }
 
       if (state.phase6State === 'reflection' && prevState.phase6State !== 'reflection') {
-         activeScene.scene.start('ReflectionScene');
+         activeScene.scene.start('ShelterViewScene');
       }
 
       if (state.phase6State === 'exterior' && prevState.phase6State !== 'exterior') {

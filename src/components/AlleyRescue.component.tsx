@@ -7,6 +7,7 @@ type DogState = 'calm' | 'nervous';
 
 export default function AlleyRescue({ onFinish }: { onFinish?: () => void }) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
+  const rescueSpecies = useGameStore(state => state.rescueSpecies);
   const setPhase6State = useGameStore(state => state.setPhase6State);
   
   const [trust, setTrust] = useState(20);
@@ -75,7 +76,7 @@ export default function AlleyRescue({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/back-alley.png" 
+          src="/src/assets/images/backgrounds/back-alley.png" 
           className="w-full h-full object-cover opacity-60"
           alt="Back Alley"
           onError={(e) => {
@@ -131,6 +132,7 @@ export default function AlleyRescue({ onFinish }: { onFinish?: () => void }) {
               <div className={`${dogState === 'nervous' ? 'camera-nervous' : ''}`}>
                 <AnimalSprite 
                   spriteKey={rescueBreed.spriteKey}
+                  species={rescueSpecies || 'DOG'}
                   animation={isComplete ? 'happy' : (dogState === 'nervous' ? 'nervous' : 'idle')}
                   size={128}
                 />

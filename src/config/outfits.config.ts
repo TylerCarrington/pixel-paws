@@ -24,6 +24,13 @@ export const OUTFITS: Outfit[] = [
     rarity: 'Rare'
   },
   {
+    id: 'chefs_apron',
+    name: 'Chef\'s Apron',
+    speciesWhitelist: [Species.DOG, Species.CAT],
+    spriteSuffix: '_apron',
+    rarity: 'Common'
+  },
+  {
     id: 'tiny_hat',
     name: 'Tiny Top Hat',
     speciesWhitelist: [Species.SMALL_ANIMAL, Species.BIRD],

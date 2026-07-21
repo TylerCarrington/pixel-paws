@@ -116,7 +116,7 @@ export default function LightSearch({ onFinish }: { onFinish?: () => void }) {
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/construction‑shed.png" 
+          src="/src/assets/images/backgrounds/construction‑shed.png" 
           className="w-full h-full object-cover"
           alt="Construction Shed"
           onError={(e) => {
@@ -147,6 +147,7 @@ export default function LightSearch({ onFinish }: { onFinish?: () => void }) {
          >
            <AnimalSprite 
               spriteKey={rescueBreed.spriteKey}
+              species={useGameStore.getState().rescueSpecies || 'DOG'}
               animation={isComplete ? 'happy' : (visibilityEffect > 0.5 ? 'curious' : 'shivering')}
               size={isComplete ? 120 : 50 + visibilityEffect * 15}
            />

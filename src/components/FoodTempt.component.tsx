@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 export default function FoodTempt({ onFinish }: { onFinish?: () => void }) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
+  const rescueSpecies = useGameStore(state => state.rescueSpecies);
   const setPhase6State = useGameStore(state => state.setPhase6State);
   
   // Animal position (x, y percentages)
@@ -117,7 +118,7 @@ export default function FoodTempt({ onFinish }: { onFinish?: () => void }) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="./src/assets/images/marketplace.png" 
+          src="/src/assets/images/backgrounds/marketplace.png" 
           className="w-full h-full object-cover opacity-60"
           alt="Marketplace"
           onError={(e) => {
@@ -144,7 +145,7 @@ export default function FoodTempt({ onFinish }: { onFinish?: () => void }) {
               transform: 'translate(-50%, -50%)',
             }}
           >
-            <img src="./src/assets/images/items/pet-treat.png" alt="Treat" className="w-full h-full object-contain" />
+            <img src="/src/assets/images/items/pet-treat.png" alt="Treat" className="w-full h-full object-contain" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -166,6 +167,7 @@ export default function FoodTempt({ onFinish }: { onFinish?: () => void }) {
       >
          <AnimalSprite 
             spriteKey={rescueBreed.spriteKey}
+            species={rescueSpecies || 'DOG'}
             animation={animalState}
             size={60 + (animalPos.y * 0.6)} // Gets bigger as it gets closer to camera/player
          />

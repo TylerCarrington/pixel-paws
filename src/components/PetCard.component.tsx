@@ -1,12 +1,12 @@
 import React from 'react';
-import { Animal } from '../types/animal.types';
+import { Animal, Species } from '../types/animal.types';
 import DesirabilityBar from './DesirabilityBar.component';
 import MoodIndicator from './MoodIndicator.component';
 import RarityBadge from './RarityBadge.component';
 import AvatarPlaceholder from './AvatarPlaceholder.component';
 import HealthCertBadge from './HealthCertBadge.component';
 import { determineMood } from '../logic/moodState.logic';
-import { STARTER_DOGS } from '../config/starterDogs.config';
+import { getBreedDefinition } from '../logic/animalAssets.logic';
 
 interface PetCardProps {
   animal: Animal;
@@ -16,7 +16,7 @@ export default function PetCard({ animal }: PetCardProps) {
   const isRecovering = animal.vetDaysRemaining > 0;
   const mood = determineMood(animal);
   
-  const def = STARTER_DOGS.find(d => d.id === animal.breed);
+  const def = getBreedDefinition(animal.breed);
 
   return (
     <div className="bg-warm-cream border border-stone-grey rounded-lg overflow-hidden shadow-lg flex flex-col h-full w-full relative">
@@ -33,9 +33,9 @@ export default function PetCard({ animal }: PetCardProps) {
        {/* Top: Portrait area */}
        <div className="h-32 bg-stone-grey/10 border-b border-stone-grey/30 flex items-center justify-center p-4 relative">
           {def?.spriteKey ? (
-             <AvatarPlaceholder spriteKey={def.spriteKey} />
+             <AvatarPlaceholder spriteKey={def.spriteKey} species={animal.species} />
           ) : (
-             <span className="text-4xl">🐶</span>
+             <span className="text-4xl">{animal.species === Species.CAT ? '🐱' : '🐶'}</span>
           )}
           <div className="absolute top-2 right-2">
             <RarityBadge rarity={animal.rarity} />

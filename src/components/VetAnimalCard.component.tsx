@@ -6,6 +6,7 @@ import { SEVERITY_TIERS } from '../config/severity.config';
 import { motion } from 'framer-motion';
 import AvatarPlaceholder from './AvatarPlaceholder.component';
 import { STARTER_DOGS } from '../config/starterDogs.config';
+import { STARTER_CATS } from '../config/starterCats.config';
 
 interface VetAnimalCardProps {
   animal: Animal;
@@ -19,6 +20,8 @@ export default function VetAnimalCard({ animal }: VetAnimalCardProps) {
     vetCareAction(animal.id, type);
   };
 
+  const breedDef = STARTER_DOGS.find(d => d.id === animal.breed) || STARTER_CATS.find(c => c.id === animal.breed);
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 10 }}
@@ -27,7 +30,7 @@ export default function VetAnimalCard({ animal }: VetAnimalCardProps) {
     >
       <div className="flex gap-4 mb-6">
         <div className="w-16 h-16 flex items-center justify-center transform scale-75 origin-top-left">
-          <AvatarPlaceholder spriteKey={STARTER_DOGS.find(d => d.id === animal.breed)?.spriteKey || animal.breed} />
+          <AvatarPlaceholder spriteKey={breedDef?.spriteKey || animal.breed} species={animal.species} />
         </div>
         <div className="flex-1">
           <h3 className="text-[10px] text-dialogue-text uppercase mb-1">{animal.name}</h3>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useGameStore } from '../stores/game.store';
 import { motion, AnimatePresence } from 'framer-motion';
 import DialoguePanel from './DialoguePanel';
+import AnimalSprite from './AnimalSprite.component';
 
 const BUSHES = [
   { id: 'bushLeft', bottom: '6%', left: '4%', width: '28%', zIndex: 60 },
@@ -19,11 +20,16 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
   const setPhase6State = useGameStore(state => state.setPhase6State);
   const assignedBreed = useGameStore(state => state.assignedBreed);
   const rescueBreed = useGameStore(state => state.rescueBreed);
+  const rescueSpecies = useGameStore(state => state.rescueSpecies);
+  
+  const species = rescueSpecies || 'DOG';
+  const isCat = species === 'CAT';
+  const animalTypeStr = isCat ? 'cat' : 'dog';
   
   const [targetId] = useState(() => BUSHES[Math.floor(Math.random() * BUSHES.length)].id);
   const [shakingId, setShakingId] = useState<string | null>(null);
   const [found, setFound] = useState(false);
-  const [prompt, setPrompt] = useState('The dog is hiding somewhere in the park. Search the bushes.');
+  const [prompt, setPrompt] = useState(`The ${animalTypeStr} is hiding somewhere in the park. Search the bushes.`);
   const [leaves, setLeaves] = useState<{ id: number; x: string; y: string }[]>([]);
 
   const handleBushClick = (id: string) => {
@@ -68,7 +74,7 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
       {/* Park Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('./src/assets/images/park-fountain.png')" }}
+        style={{ backgroundImage: "url('/src/assets/images/backgrounds/park-fountain.png')" }}
       />
 
       {/* Layered Bush Sprites */}
@@ -87,7 +93,7 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
           }}
         >
           <img 
-            src="./src/assets/images/bush.png" 
+            src="/src/assets/images/items/bush.png" 
             alt="Bush" 
             className="w-full h-auto pixelated"
             style={{ transformOrigin: 'bottom center' }}
@@ -95,22 +101,23 @@ export default function BushSearch({ onFinish }: { onFinish?: () => void }) {
         </div>
       ))}
 
-      {/* Dog Layer (Corgi) */}
+      {/* Animal Sprite */}
       <AnimatePresence>
-        {found && (
+        {found && rescueBreed && (
           <motion.div
             initial={{ opacity: 0, scale: 0.5, x: '-50%', y: '20px' }}
             animate={{ opacity: 1, scale: 1, x: '-50%', y: '0px' }}
             className="absolute left-1/2 bottom-[30%] z-50 pointer-events-none"
           >
             <div className="relative">
-              <img 
-                src="./src/assets/images/animals/dogs/corgi.png" 
-                alt="Corgi" 
-                className="w-48 h-48 pixelated drop-shadow-[0_20px_20px_rgba(0,0,0,0.3)] animate-soft-pulse"
+              <AnimalSprite 
+                spriteKey={rescueBreed.spriteKey} 
+                species={species}
+                animation="happy" 
+                size={isCat ? 100 : 120} 
               />
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-warm-cream/90 px-3 py-1 rounded-full text-dialogue-text text-[10px] animate-bounce shadow-sm">
-                Woof!
+                {isCat ? 'Meow!' : 'Woof!'}
               </div>
             </div>
           </motion.div>

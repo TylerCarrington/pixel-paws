@@ -33,9 +33,6 @@ export default function CallCard({ call, isSelected, onClick }: CallCardProps) {
         <div className="text-[8px] font-pixel text-muted-sage uppercase tracking-widest bg-stone-grey/20 px-2 py-0.5 rounded">
           {call.species}
         </div>
-        <div className="text-[8px] font-pixel text-speaker-rose/70 italic">
-          Method: {call.discoveryMethod}
-        </div>
       </div>
 
       {call.responded && (

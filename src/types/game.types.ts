@@ -25,6 +25,7 @@ export interface GameState {
   playerAppearance: PlayerAppearance | null;
   placedFurniture: { id: string; x: number; y: number }[];
   petOutfits: Record<string, string>;
+  petHouseDecorations: Record<string, { [instanceId: string]: { x: number; y: number; itemKey: string } }>;
   inventory: string[];
   settings: {
     musicVolume: number;
@@ -33,4 +34,17 @@ export interface GameState {
   };
   shelterUnlocked: boolean;
   morningBoardUnlocked: boolean;
+  shelterCapacity: number; // We'll keep this as dogs capacity or total capacity. But if we need separate capacity for cats... Let's just use `shelterCapacity` for dogs, and add `catCapacity`.
+  catCapacity: number;
+  homeDogCapacity: number;
+  homeCatCapacity: number;
+  homeRabbitCapacity: number;
+  homeBirdCapacity: number;
+  homeReptileCapacity: number;
+  homeAquaticCapacity: number;
+  catsUnlocked: boolean;
+  rarePetsUnlocked: boolean;
+  spareRoomAccessible: boolean;
+  shelterExterior: string | null;
+  actionsPerPetToday: number;
 }

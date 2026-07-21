@@ -15,21 +15,19 @@ export default class BootScene extends Phaser.Scene {
       // Still in Character Builder, do nothing, the listener in GameCanvas will move it
     } else if (!state.prologueComplete) {
       this.scene.start('PrologueScene');
-    } else if (!state.phase4Complete) {
-      this.scene.start('PlaceholderScene');
+    } else if (!state.washComplete) {
+      // Stay on prologue or an idle state during wash/reveal
+      this.scene.start('PrologueScene');
     } else {
-      // Phase 4 complete. Check Phase 5 state
-      if (state.phase5State === 'petting') {
-         this.scene.start('PettingInteractionScene');
-      } else if (state.phase5State === 'bedtime') {
-         this.scene.start('BedroomScene');
-      } else if (state.phase5State === 'naming') {
-         // User refreshed during naming, Wash scene is normally still active here so they can see the dog
-         this.scene.start('PlaceholderScene');
-      } else if (state.phase5State === 'complete') {
-         this.scene.start('PlaceholderScene');
+      // Phase 4 complete.
+      if (state.phase6State === 'shelter_view' || state.phase6State === 'phone_call') {
+         this.scene.start('ShelterViewScene');
+      } else if (state.phase6State === 'exterior') {
+         this.scene.start('ShelterExteriorScene');
       } else {
-         this.scene.start('PlaceholderScene');
+         // Default to an empty but safe state instead of Placeholder
+         // Petting and Bedroom are now handled in React for Day 1
+         this.scene.start('PrologueScene');
       }
     }
   }

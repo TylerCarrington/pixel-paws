@@ -13,15 +13,21 @@ export default function ShelterNameInput() {
   const purchaseUpgrade = useGameStore(state => state.purchaseUpgrade);
   const facilityUpgrades = useGameStore(state => state.facilityUpgrades);
   
+  const dayNumber = useGameStore(state => state.dayNumber);
+  const shelterCapacity = useGameStore(state => state.shelterCapacity);
+
   const handleConfirm = (name: string) => {
     setShelterName(name);
 
-    if (!facilityUpgrades.includes('KENNEL_BASIC_3')) {
-      // Grant initial capacity if for some reason missing
-      purchaseUpgrade({ id: 'KENNEL_BASIC_3', cost: 0 } as any);
+    if (dayNumber === 1) {
+      if (!facilityUpgrades.includes('KENNEL_BASIC_3')) {
+        // Grant initial capacity if for some reason missing
+        purchaseUpgrade({ id: 'KENNEL_BASIC_3', cost: 0 } as any);
+      }
+      setPhase6State('wash_rescue');
+    } else {
+      setPhase6State('shelter_view');
     }
-
-    setPhase6State('wash_rescue');
   };
 
   return (

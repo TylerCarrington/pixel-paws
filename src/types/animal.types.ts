@@ -46,7 +46,8 @@ export enum DiscoveryMethod {
   WOODPILE_TRAPPED = 'WOODPILE_TRAPPED',
   RUNAWAY_CHASE = 'RUNAWAY_CHASE',
   PORCH_HIDING = 'PORCH_HIDING',
-  RIVERSIDE_WARMUP = 'RIVERSIDE_WARMUP'
+  RIVERSIDE_WARMUP = 'RIVERSIDE_WARMUP',
+  PARK_INJURED = 'PARK_INJURED'
 }
 
 export interface Animal {
@@ -64,4 +65,26 @@ export interface Animal {
   isMine: boolean;
   outfits: string[];
   discoveryMethod: DiscoveryMethod;
+  mood: 'Happy' | 'Calm' | 'Anxious' | 'Shy';
+  actionsUsedToday: number;
+  level: number;
+  currentXP: number;
+  totalXP: number;
+  hasBeenNamed?: boolean;
+  activityCooldowns: { [activityKey: string]: boolean };
+  equippedAccessories: {
+    head: string | null;
+    neck: string | null;
+    body: string | null;
+    back: string | null;
+  };
+  hiddenBonuses: {
+    pet: number;
+    feed: number;
+    play: number;
+    groom: number;
+    activity: number;
+  };
+  homeLocation?: 'bedroom' | 'dogHouse' | 'familyRoom' | 'sunroom' | 'studyRoom';
+  dailyXPFlags?: Partial<Record<'pet' | 'feed' | 'play' | 'groom', boolean>>;
 }

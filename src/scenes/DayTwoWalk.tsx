@@ -32,11 +32,11 @@ export default function DayTwoWalk({ onFinish, startBeatId }: DayTwoWalkProps) {
   const rescueBreed = useGameStore(state => state.rescueBreed);
   const assignedBreed = useGameStore(state => state.assignedBreed);
   const setSecondPetName = useGameStore(state => state.setSecondPetName);
-  const addOwnedPet = useGameStore(state => state.addOwnedPet);
+  const addShelterAnimal = useGameStore(state => state.addShelterAnimal);
   const ownedPets = useGameStore(state => state.ownedPets);
   const firstPetName = ownedPets[0]?.name || "the husky";
 
-  const [currentBg, setCurrentBg] = useState('./src/assets/images/park-fountain.png');
+  const [currentBg, setCurrentBg] = useState('/src/assets/images/backgrounds/park-fountain.png');
   const [lightsDown, setLightsDown] = useState(false);
   const [showTitleCard, setShowTitleCard] = useState<string[] | null>(null);
   const [nightFade, setNightFade] = useState(false);
@@ -177,7 +177,9 @@ export default function DayTwoWalk({ onFinish, startBeatId }: DayTwoWalkProps) {
     
     if (rescueBreed) {
       const pet = createStarterPet(rescueBreed, name);
-      addOwnedPet(pet);
+      pet.isMine = false;
+      pet.homeLocation = undefined;
+      addShelterAnimal(pet);
     }
     advance();
   };
@@ -273,7 +275,7 @@ export default function DayTwoWalk({ onFinish, startBeatId }: DayTwoWalkProps) {
                 width: currentBeat?.type === 'tuckInInteraction' ? '180px' : '150px'
               }}
             >
-              <img src="./src/assets/images/pet-bed.png" alt="Pet Bed" className="w-full pixelated drop-shadow-lg" />
+              <img src="/src/assets/images/items/pet-bed.png" alt="Pet Bed" className="w-full pixelated drop-shadow-lg" />
             </motion.div>
           )}
 
@@ -357,14 +359,14 @@ export default function DayTwoWalk({ onFinish, startBeatId }: DayTwoWalkProps) {
               {showCorgi && (
                  <div className="relative">
                    <img 
-                    src="./src/assets/images/animals/dogs/corgi.png" 
+                    src="/src/assets/images/animals/dogs/corgi.png" 
                     alt="Corgi" 
                     className={`pixelated w-48 h-48 drop-shadow-[0_20px_20px_rgba(0,0,0,0.3)] ${petTucked ? 'hidden' : 'animate-soft-pulse'}`}
                   />
                   {petTucked && (
                      <div className="relative">
                        <img 
-                        src="./src/assets/images/animals/dogs/corgi.png" 
+                        src="/src/assets/images/animals/dogs/corgi.png" 
                         alt="Corgi Sleep" 
                         className="pixelated w-48 h-48 opacity-100 scale-y-75 translate-y-6 animate-gentle-breathe"
                       />
@@ -377,14 +379,14 @@ export default function DayTwoWalk({ onFinish, startBeatId }: DayTwoWalkProps) {
               {showHusky && (
                 <div className="relative">
                    <img 
-                    src={`./src/assets/images/animals/dogs/${assignedBreed ? assignedBreed.spriteKey : 'husky'}.png`}
+                    src={`/src/assets/images/animals/dogs/${assignedBreed ? assignedBreed.spriteKey : 'husky'}.png`}
                     alt="Husky" 
                     className={`pixelated w-56 h-56 drop-shadow-[0_20px_20px_rgba(0,0,0,0.3)] ${petTucked ? 'hidden' : 'animate-soft-pulse'}`}
                   />
                   {petTucked && (
                     <div className="relative">
                        <img 
-                        src={`./src/assets/images/animals/dogs/${assignedBreed ? assignedBreed.spriteKey : 'husky'}.png`}
+                        src={`/src/assets/images/animals/dogs/${assignedBreed ? assignedBreed.spriteKey : 'husky'}.png`}
                         alt="Husky Sleep" 
                         className="pixelated w-56 h-56 opacity-100 scale-y-75 translate-y-12 animate-gentle-breathe"
                       />
