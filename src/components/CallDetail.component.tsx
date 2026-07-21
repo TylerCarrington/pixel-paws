@@ -11,7 +11,7 @@ interface CallDetailProps {
 const LOCATION_BACKGROUNDS: Record<string, string> = {
   [DiscoveryMethod.SCARED_APPROACH]: './src/assets/images/backgrounds/back-alley.png',
   [DiscoveryMethod.FOOD_TEMPT]: './src/assets/images/backgrounds/back-alley.png',
-  [DiscoveryMethod.DARK_SEARCH]: './src/assets/images/backgrounds/construction‑shed.png',
+  [DiscoveryMethod.DARK_SEARCH]: './src/assets/images/backgrounds/construction-shed.png',
   [DiscoveryMethod.WOODPILE_TRAPPED]: './src/assets/images/backgrounds/woodpile.png',
   [DiscoveryMethod.RUNAWAY_CHASE]: './src/assets/images/backgrounds/downtown-village.png',
   [DiscoveryMethod.PORCH_HIDING]: './src/assets/images/backgrounds/porch.png',
@@ -24,7 +24,7 @@ const LOCATION_BACKGROUNDS: Record<string, string> = {
   [DiscoveryMethod.PARK_FIND]: './src/assets/images/backgrounds/park-with-benches.png',
   [DiscoveryMethod.BACKYARD_STRAY]: './src/assets/images/backgrounds/porch.png',
   [DiscoveryMethod.POLICE_DROP]: './src/assets/images/backgrounds/marketplace.png',
-  [DiscoveryMethod.SOUND]: './src/assets/images/backgrounds/construction‑shed.png',
+  [DiscoveryMethod.SOUND]: './src/assets/images/backgrounds/construction-shed.png',
   [DiscoveryMethod.TANGLED]: './src/assets/images/backgrounds/park-fountain.png',
 };
 
